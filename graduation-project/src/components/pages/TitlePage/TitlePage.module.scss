@@ -1,0 +1,49 @@
+.one {
+    color: red;  
+}
+.line {
+    border-bottom: 1px solid black;
+}
+.wrapper {
+    max-width: 1450px;
+    margin: 0 auto;
+
+  
+    
+}
+.wrapper .circular {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;       
+}
+
+.foto {
+    width: 300px;
+    height: 200px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    height: 100%;
+    border: 1px solid red;
+    padding: 10px;
+    
+   
+}
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+a {
+    align-self: flex-end;
+    color: blue;
+    &:hover {
+        color: green;
+    }
+}

@@ -11,12 +11,15 @@ export interface INews {
 
 }
 
+const getNewsID = async (id: number): Promise<INews | null> => {
 
-const getNews = async (): Promise<INews[]> => {
     try{
+        
         const response = await axios.get('https://api.spaceflightnewsapi.net/v3/articles?_limit=32');
-
-        return response.data;
+        const newsDatails  = await response.data.find((news: { id: number }) => news.id === news.id) || null;
+        console.log(newsDatails);
+        
+        return newsDatails;
         
     } catch (e) {
         alert(e);
@@ -24,6 +27,4 @@ const getNews = async (): Promise<INews[]> => {
     } 
         
 }
-export default getNews;
-
-
+export default getNewsID;

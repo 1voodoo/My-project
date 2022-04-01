@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { FC } from "react"
 
 
-const  Comments: FC<> = () => {
+const  Comments: FC<{onAdd(tittle: string): void}> = props => {
   const [text, setText] = useState<string>('')
   console.log(text);
   
@@ -11,19 +11,13 @@ const  Comments: FC<> = () => {
   }
   const keyPressHandler = (event: React.KeyboardEvent) => {
     if (event.key === 'Enter') {
-      console.log(text);
+      props.onAdd(text)
       setText('');
       
     }
   } 
   
-// interface IComment {
-//   id: number,
-//   name: string,
-//   comments: string
-// }
   return (
-    
     <div>
       <p>Comments</p>
       <textarea value={text}
@@ -35,7 +29,6 @@ const  Comments: FC<> = () => {
     </div>
   )
  
-
 } 
 
 export default Comments;

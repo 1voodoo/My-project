@@ -4,14 +4,30 @@ import { useParams } from "react-router-dom";
 import { RootState } from "../../../store";
 import { getNewsDescription } from "../../../store/NewsDescription/ActionCreator";
 import Comments from "../Comments";
+import IAllComments from "../interfeyce";
 import PageLayout from "../PageLayout/PageLayout";
+import UserTodo from "../UserTodo";
 
 const NewsPage: FC = () => {
-    const [comment, setComment] = useState([]);
+    const [comment, setComment] = useState<IAllComments[]>([]);
+
     const addHandler = (tittle: string) => {
-        console.log('hello', tittle);
+        const newComment: IAllComments = {
+            tittle: tittle,
+            id: Date.now(),
+            complited: false
+        }
+        setComment(prev => [newComment, ...prev])
         
     }
+    const togleHandler = (id: number) => {
+       
+    }
+
+    const removeHandler = (id: number) => {
+        setComment(prev => prev.filter(user => user.id !== id))
+    }
+
     const dispatch = useDispatch();
     const { id } = useParams();
     const newsDescription = useSelector((state: RootState) => state.newsDescription);
@@ -20,13 +36,17 @@ const NewsPage: FC = () => {
     
     useEffect(() => {
         dispatch(getNewsDescription(Number(id)));
-    }, []);
+    }, [dispatch, id]);
 
     return (
         <PageLayout>
             <div>    
                 <div>lol{newsDescription[id!] && newsDescription[id!]?.title}</div>
                 <Comments onAdd={addHandler}/>
+                <UserTodo userTodos={comment}
+                 onToggle={togleHandler} 
+                 onRemove={removeHandler}
+                />
             </div>
         </PageLayout>
             

@@ -1,0 +1,32 @@
+.main {
+    .appBar {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .Container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 100%;
+    }
+    .btnHome {
+        width: 100px;
+        height: 50px;
+        font-weight: 700;
+        &:hover {
+            color: green;
+        }
+    }
+    .btnComment {
+        width: 150px;
+        height: 50px;
+        font-weight: 700;
+        &:hover {
+            color: green;
+        }
+    }
+}
+

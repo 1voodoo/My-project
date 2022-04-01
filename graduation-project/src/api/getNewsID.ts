@@ -16,7 +16,7 @@ const getNewsID = async (id: number): Promise<INews | null> => {
     try{
         
         const response = await axios.get('https://api.spaceflightnewsapi.net/v3/articles?_limit=32');
-        const newsDatails  = await response.data.find((news: { id: number }) => news.id === news.id) || null;
+        const newsDatails  = await response.data.find((news: { id: number; }) => news.id === news.id) || null;
         console.log(newsDatails);
         
         return newsDatails;

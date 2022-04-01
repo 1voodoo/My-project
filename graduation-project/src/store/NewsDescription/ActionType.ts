@@ -1,5 +1,5 @@
 enum NewsDescriptionActionType {
-    GetNewsDescription = 'NewsDescriptionActionType/getNewsDescription',
+    GetNewsDescription = 'NewsDescription/getNewsDescription',
 }
 
 export default NewsDescriptionActionType;

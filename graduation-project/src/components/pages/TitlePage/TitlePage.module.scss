@@ -47,68 +47,14 @@ a {
 .btn {
     width: 100px;
     padding: 10px;
+    font-weight: 700;
+        &:hover {
+            color: green;
+        }
 }
 .newsReleasw {
     align-self: flex-end;
     font-size: 16px;
     font-weight: bold;
     color: black;
-}
-.allCoins {
-    display: flex;
-    align-items: center;
-    white-space: nowrap; 
-    
-}
-.nameCoin {
-    margin: 0 10px;
-}
-.dollar {
-    color: green;
-    font-size: large;
-}
-.price {
-    display: flex;
-    align-items: center;
-}
-.containerCoins {
-    padding: 10px 0px;
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 20px;
-    // -webkit-animation: marquee 50s infinite linear;
-    // animation: marquee 50s infinite linear;  
-}
-
-
- 
-@-webkit-keyframes marquee {
-0%{-webkit-transform: translate(0, 0);}
-25%{-webkit-transform: translate(-0%, 0);}
-50%{-webkit-transform: translate(-0%, 0);}
-100%{-webkit-transform: translate(-0%, 0);}
-}
-@keyframes marquee{
-    0%{-webkit-transform: translate(+40%, 0);}
-    10%{-webkit-transform: translate(-50%, 0);}
-    15%{-webkit-transform: translate(-100%, 0);}
-    20%{-webkit-transform: translate(-150%, 0);}
-    25%{-webkit-transform: translate(-200%, 0);}
-    30%{-webkit-transform: translate(-250%, 0);}
-    35%{-webkit-transform: translate(-300%, 0);}
-    40%{-webkit-transform: translate(-350%, 0);}
-    45%{-webkit-transform: translate(-400%, 0);}
-    50%{-webkit-transform: translate(-450%, 0);}
-    55%{-webkit-transform: translate(-500%, 0);}
-    60%{-webkit-transform: translate(-550%, 0);}
-    65%{-webkit-transform: translate(-600%, 0);}
-    70%{-webkit-transform: translate(-650%, 0);}
-    75%{-webkit-transform: translate(-700%, 0);}
-    80%{-webkit-transform: translate(-750%, 0);}
-    90%{-webkit-transform: translate(-800%, 0);}
-    100%{-webkit-transform: translate(-850%, 0);}
-     
-}
-.containerOwerflow {
-    overflow: hidden;
 }

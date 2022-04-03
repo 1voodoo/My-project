@@ -3,10 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { RootState } from "../../../store";
 import { getNewsDescription } from "../../../store/NewsDescription/ActionCreator";
-import Comments from "../Comments";
-import IAllComments from "../interfeyce";
 import PageLayout from "../PageLayout/PageLayout";
-import UserTodo from "../UserTodo";
+import UserTodo from "../Comments/UserTodo";
+import Comments from "../Comments/Comments";
+import IAllComments from "../Comments/interface";
+import style from './NewsPage.module.scss';
 
 const NewsPage: FC = () => {
     const [comment, setComment] = useState<IAllComments[]>([]);
@@ -15,17 +16,16 @@ const NewsPage: FC = () => {
         const newComment: IAllComments = {
             tittle: tittle,
             id: Date.now(),
-            complited: false
         }
         setComment(prev => [newComment, ...prev])
         
     }
-    const togleHandler = (id: number) => {
-       
-    }
 
     const removeHandler = (id: number) => {
-        setComment(prev => prev.filter(user => user.id !== id))
+        const question = window.confirm("Вы точно хотите удалить комментарий")
+        if (question) {
+            setComment(prev => prev.filter(user => user.id !== id))
+        }
     }
 
     const dispatch = useDispatch();
@@ -36,16 +36,21 @@ const NewsPage: FC = () => {
     
     useEffect(() => {
         dispatch(getNewsDescription(Number(id)));
+        const save = JSON.parse(localStorage.getItem('comment') || '[]') as IAllComments[]
+        setComment(save)
     }, [dispatch, id]);
+
+    useEffect(() => {
+        localStorage.setItem('comment', JSON.stringify(comment))
+    }, [comment]);
 
     return (
         <PageLayout>
-            <div>    
-                <div>lol{newsDescription[id!] && newsDescription[id!]?.title}</div>
+            <div className={style.wrapper}>    
+                <div>{newsDescription[id!] && newsDescription[id!]?.title}</div>
                 <Comments onAdd={addHandler}/>
                 <UserTodo userTodos={comment}
-                 onToggle={togleHandler} 
-                 onRemove={removeHandler}
+                onRemove={removeHandler}
                 />
             </div>
         </PageLayout>

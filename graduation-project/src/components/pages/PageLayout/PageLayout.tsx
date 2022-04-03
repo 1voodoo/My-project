@@ -13,7 +13,6 @@ const PageLayout: FC = ({ children }) => {
             <AppBar position="static" className={style.appBar}>
                 <Container className={style.Container}>
                     <Button onClick={handleOnClick} className={style.btnHome} color="inherit">HOME</Button>
-                    <Button className={style.btnComment} color="inherit">Add A comment</Button>
                 </Container>
             </AppBar>
             {children}

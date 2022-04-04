@@ -46,7 +46,15 @@ const NewsPage: FC = () => {
 
     return (
         <PageLayout>
-            <div className={style.wrapper}>    
+            <div className={style.wrapper}> 
+                <img className={style.foto} src="https://turkmenportal.com/images/uploads/blogs/4435bf06476c70aa9aae22e3e4f589a7.jpg" alt="foto"  /> 
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                     Natus aut impedit eos excepturi quaerat illo distinctio ipsa quae, fugit beatae temporibus
+                     ipsam cupiditate animi quod consequatur aspernatur laboriosam praesentium perspiciatis!
+                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos 
+                     voluptate eius unde a vel quas, ut ipsa odio, itaque officiis quaerat
+                    delectus porro eligendi laborum atque nesciunt incidunt quia architecto.
+                </p>  
                 <div>{newsDescription[id!] && newsDescription[id!]?.title}</div>
                 <Comments onAdd={addHandler}/>
                 <UserTodo userTodos={comment}

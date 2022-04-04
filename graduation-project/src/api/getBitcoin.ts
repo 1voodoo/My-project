@@ -13,8 +13,6 @@ export interface IBitcon {
     }   
 }
 
-
-
 const getBitcoin = async (): Promise<IBitcon[]> => {
     try{
         const response = await axios.get('https://api.coingecko.com/api/v3/coins');

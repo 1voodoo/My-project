@@ -30,7 +30,7 @@ const Comments: FC<{onAdd(tittle: string): void}> = props => {
       placeholder="Your Comment" 
       >
       </textarea>
-      <Button 
+      <Button
       className={style.btn} 
       onClick={keyPressHandler}
       variant="contained">

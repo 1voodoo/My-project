@@ -46,7 +46,12 @@ const NewsPage: FC = () => {
 
     return (
         <PageLayout>
-            <div className={style.wrapper}> 
+            <div className={style.wrapper}>
+                {newsDescription && (
+                    <div>
+                        {/* {newsDescription} */}
+                    </div>
+                )} 
                 <img className={style.foto} src="https://turkmenportal.com/images/uploads/blogs/4435bf06476c70aa9aae22e3e4f589a7.jpg" alt="foto"  /> 
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
                      Natus aut impedit eos excepturi quaerat illo distinctio ipsa quae, fugit beatae temporibus

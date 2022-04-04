@@ -10,7 +10,7 @@ const AppRoutes: FC = () => {
   return (
     <Routes>
       <Route path="/" element={<TitlePage/>} />
-      <Route path="/news/:news" element={<NewsPage/>} />
+      <Route path="/news/:id" element={<NewsPage/>} />
       <Route path="*" element={<PageError/>} />
     </Routes>
   );

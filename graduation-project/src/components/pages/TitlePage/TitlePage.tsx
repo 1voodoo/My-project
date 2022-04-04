@@ -1,12 +1,8 @@
-import { Button, CircularProgress, FormControl, InputLabel, MenuItem, Select} from "@mui/material";
+import { Button, CircularProgress, FormControl, InputLabel, MenuItem, Select, SelectChangeEvent} from "@mui/material";
 import { Box } from "@mui/system";
-import { ChangeEvent, FC, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-<<<<<<< HEAD
-=======
-import { INews } from "../../../api/getNews";
->>>>>>> 99e171732bbaa5b5fef0990fcaa321b32044ebcc
 import { RootState } from "../../../store";
 import { getAllNews } from "../../../store/News/ActionCreator";
 import SiteTicker from "../SiteTicker/SiteTicker";
@@ -16,61 +12,23 @@ import style from "./TitlePage.module.scss";
 const TitlePage: FC = () => {
     const dispatch = useDispatch();
     const { allNews } = useSelector((state: RootState) => state.GetAllNews);
-    const handleChange = (event: any) => {
-        setNews(event.target.value);
+    const [category, setCategory] = useState('');
+    const handleChange = (event: SelectChangeEvent<string>) => {
+        setCategory(event.target.value);
       };
-    const SpaceNews = allNews?.filter(item => item.newsSite === 'SpaceNews');
-    const Arstechnica = allNews?.filter(item => item.newsSite === 'Arstechnica');
-    const Spaceflight = allNews?.filter(item => item.newsSite === 'Spaceflight Now');
-    const Teslarati = allNews?.filter(item => item.newsSite === 'Teslarati');
-    const Nasa = allNews?.filter(item => item.newsSite === 'NASA');
-    const NasaSpaceflight = allNews?.filter(item => item.newsSite === 'NASA Spaceflight');
-<<<<<<< HEAD
-    const [news, setNews] = useState()
-    console.log(news);
-    
-    // console.log(SpaceNews);
-=======
-    const [news, setNews] = useState(allNews)
-    const [news1, setNews1] = useState('')
-    console.log(news);
->>>>>>> 99e171732bbaa5b5fef0990fcaa321b32044ebcc
-    
-    // console.log(SpaceNews);
-    // SelectChangeEvent
+      const filterdNews = allNews?.filter(item => !category || item.newsSite === category);
     const navigate = useNavigate();
     const newsDescription = (id: number) => {
         navigate(`/news/${id}`)
     };
-    const handleChange = (event: any) => {
-        setNews(event.target.value);
-      };
 
     useEffect(() => {
         dispatch(getAllNews());
-    }, []);
+    }, [dispatch]);
 
     return (<>
                 <p>Today {new Date().toISOString().slice(0, 10)}</p>
                 <div className={style.wrapper}><h1 className={style.one}>TitlePage</h1></div>
-<<<<<<< HEAD
-                <Box sx={{ minWidth: 120 }}>
-                        <FormControl fullWidth>
-                          <InputLabel id="demo-simple-select-label">Choose News</InputLabel>
-                          <Select
-                            labelId="demo-simple-select-label"
-                            id="demo-simple-select"
-                            value={news}
-                            label="Agedsdasdas"
-                            onChange={handleChange}
-                          >
-                            <MenuItem value={SpaceNews}>SpaceNews</MenuItem>
-                            <MenuItem value={20}>Twenty</MenuItem>
-                            <MenuItem value={30}>Thirty</MenuItem>
-                          </Select>
-                        </FormControl>
-                      </Box>
-=======
                 {allNews && (
                     <Box sx={{ maxWidth: 220 }}>
                     <FormControl fullWidth>
@@ -78,36 +36,27 @@ const TitlePage: FC = () => {
                       <Select
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
-                        value={news}
+                        value={category}
                         label="Select news"
                         onChange={handleChange}
                       >
-                        {/* {allNews.filter((info) => {
-                            if (info.newsSite === 'SpaceNews')
-                            return (
-                                <MenuItem
-                                    value={allNews}>
-                                    allNews
-                                </MenuItem>
-                            )
-                        })} */}
-                                {/* <MenuItem
-                                    value={allNews}>
-                                    allNews
-                                </MenuItem> */}
-                        <MenuItem value={20}>Twenty</MenuItem>
-                        <MenuItem value={30}>Thirty</MenuItem>
+                        <MenuItem value={''}>All News</MenuItem>
+                        <MenuItem value={"SpaceNews"}>Space News</MenuItem>
+                        <MenuItem value={"Teslarati"}>Teslarati</MenuItem>
+                        <MenuItem value={"NASA"}>NASA</MenuItem>
+                        <MenuItem value={"Spaceflight Now"}>Spaceflight Now</MenuItem>
+                        <MenuItem value={"Arstechnica"}>Arstechnica</MenuItem>
+                        <MenuItem value={"NASA Spaceflight"}>NASA Spaceflight</MenuItem>
                       </Select>
                     </FormControl>
                   </Box>
                 )}
->>>>>>> 99e171732bbaa5b5fef0990fcaa321b32044ebcc
                 <div className={style.line}></div> 
                 <div className={style.wrapper}> 
                   <SiteTicker/> 
                     {!allNews && (<div className={style.circular}><CircularProgress/></div>)}
                     {allNews && (
-                        <div className={style.main}>{allNews!.map((info) => (
+                        <div className={style.main}>{filterdNews!.map((info) => (
                             <div className={style.container} key={info.id}>
                                 <p>{info.newsSite}</p>
                                 <img src={info.imageUrl} alt="foto" className={style.foto}/>

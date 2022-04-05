@@ -3,13 +3,30 @@
   height: 15px;
 }
 .tittle {
-  margin: 0 5px;
+  font-weight: 500;
+  font-size: large;
+  font-family: 'Times New Roman', Times, serif;
 }
 .foto {
-  width: 35px;
-  height: 35px;
+  width: 60px;
+  height: 60px;
 }
 .container {
+  width: 1000px;
   display: flex;
   align-items: center;
+  margin-bottom: 10px;
+}
+.userContainer {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+.user {
+  font-weight: 700;
+  font-size: larger;
+  color: blue;
+}
+.userContainer .icon {
+  align-self: flex-end;
 }

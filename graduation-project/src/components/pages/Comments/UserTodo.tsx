@@ -16,12 +16,15 @@ const UserTodo: FC<IUserTodo> = ({ userTodos, onRemove}) => {
                 src="https://chto-eto-takoe.ru/uryaimg/32574385521dd1847f7d1e5b940491ef.jpg"
                 alt="foto"  
                 />
-                <p className={style.tittle}>{user.tittle}</p>
-                <img className={style.icon} 
-                onClick={() => onRemove(user.id)} 
-                src="https://cdn-icons-png.flaticon.com/512/1483/1483063.png"
-                alt="icon"
-                />
+                <div className={style.userContainer}>
+                  <p className={style.user}>{user.nameUser}</p>
+                  <p className={style.tittle}>{user.tittle}</p>
+                  <img className={style.icon} 
+                  onClick={() => onRemove(user.id)} 
+                  src="https://cdn-icons-png.flaticon.com/512/1483/1483063.png"
+                  alt="icon"
+                  />
+                </div>
             </div>
           )
         })} 

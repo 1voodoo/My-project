@@ -13,11 +13,13 @@ const TitlePage: FC = () => {
     const dispatch = useDispatch();
     const { allNews } = useSelector((state: RootState) => state.GetAllNews);
     const [category, setCategory] = useState('');
+    
     const handleChange = (event: SelectChangeEvent<string>) => {
         setCategory(event.target.value);
       };
-      const filterdNews = allNews?.filter(item => !category || item.newsSite === category);
+    const filterdNews = allNews?.filter(item => !category || item.newsSite === category);
     const navigate = useNavigate();
+
     const newsDescription = (id: number) => {
         navigate(`/news/${id}`)
     };
@@ -27,35 +29,38 @@ const TitlePage: FC = () => {
     }, [dispatch]);
 
     return (<>
-                <p>Today {new Date().toISOString().slice(0, 10)}</p>
-                <div className={style.wrapper}><h1 className={style.one}>TitlePage</h1></div>
-                {allNews && (
-                    <Box sx={{ maxWidth: 220 }}>
-                    <FormControl fullWidth>
-                      <InputLabel id="demo-simple-select-label">Select news</InputLabel>
-                      <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={category}
-                        label="Select news"
-                        onChange={handleChange}
-                      >
-                        <MenuItem value={''}>All News</MenuItem>
-                        <MenuItem value={"SpaceNews"}>Space News</MenuItem>
-                        <MenuItem value={"Teslarati"}>Teslarati</MenuItem>
-                        <MenuItem value={"NASA"}>NASA</MenuItem>
-                        <MenuItem value={"Spaceflight Now"}>Spaceflight Now</MenuItem>
-                        <MenuItem value={"Arstechnica"}>Arstechnica</MenuItem>
-                        <MenuItem value={"NASA Spaceflight"}>NASA Spaceflight</MenuItem>
-                      </Select>
-                    </FormControl>
-                  </Box>
-                )}
-                <div className={style.line}></div> 
+                <div className={style.wrapper}>
+                  <div className={style.Header}>
+                    <img className={style.HeaderFoto} src="https://cdn.shopify.com/s/files/1/2143/6539/files/WP-logo.png?height=628&pad_color=fff&v=1571765552&width=1200" alt="foto"  />
+                  </div>
+                </div>
+                <div className={style.line}></div>
+                <SiteTicker/>  
                 <div className={style.wrapper}> 
-                  <SiteTicker/> 
                     {!allNews && (<div className={style.circular}><CircularProgress/></div>)}
-                    {allNews && (
+                    {allNews && ( <>
+                        <div className={style.select}>
+                            <Box sx={{ maxWidth: 250 }} >
+                            <FormControl fullWidth>
+                              <InputLabel id="demo-simple-select-label">Select news</InputLabel>
+                              <Select
+                                labelId="demo-simple-select-label"
+                                id="demo-simple-select"
+                                value={category}
+                                label="Select news"
+                                onChange={handleChange}
+                              >
+                                <MenuItem value={''}>All News</MenuItem>
+                                <MenuItem value={"SpaceNews"}>Space News</MenuItem>
+                                <MenuItem value={"Teslarati"}>Teslarati</MenuItem>
+                                <MenuItem value={"NASA"}>NASA</MenuItem>
+                                <MenuItem value={"Spaceflight Now"}>Spaceflight Now</MenuItem>
+                                <MenuItem value={"Arstechnica"}>Arstechnica</MenuItem>
+                                <MenuItem value={"NASA Spaceflight"}>NASA Spaceflight</MenuItem>
+                              </Select>
+                            </FormControl>
+                          </Box>
+                        </div>
                         <div className={style.main}>{filterdNews!.map((info) => (
                             <div className={style.container} key={info.id}>
                                 <p>{info.newsSite}</p>
@@ -73,7 +78,7 @@ const TitlePage: FC = () => {
                             </div>
                             ))}
                         </div>
-                    )}
+                      </>)}
                 </div>          
             </>
             );

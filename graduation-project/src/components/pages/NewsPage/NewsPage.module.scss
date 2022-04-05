@@ -1,7 +1,31 @@
 .wrapper {
   max-width: 1450px;
-  margin: 0 auto;   
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center; 
+ 
 }
+.wrapper .circular {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .foto {
-  width: 100%;
+  margin-top: 50px;
+  width: 1000px;
+  height: 450px;
+  border-radius: 10px;
+  object-fit: cover;
+  
+}
+.summary {
+  margin: 40px 0;
+  max-width: 1000px;
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 2rem;
 }

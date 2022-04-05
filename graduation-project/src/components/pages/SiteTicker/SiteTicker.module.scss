@@ -6,6 +6,9 @@
 }
 .nameCoin {
     margin: 0 10px;
+    color: white;
+    font-weight: 900;
+    font-size: large;
 }
 .dollar {
     color: green;
@@ -14,6 +17,8 @@
 .price {
     display: flex;
     align-items: center;
+    color: white;
+    font-size: larger;
 }
 .containerCoins {
     padding: 10px 0px;
@@ -55,4 +60,9 @@
 }
 .containerOwerflow {
     overflow: hidden;
+    max-width: 1450px;
+    margin: 0 auto;
+}
+.container {
+    background-color: black;
 }

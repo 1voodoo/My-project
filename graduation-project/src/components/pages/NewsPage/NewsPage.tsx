@@ -8,21 +8,24 @@ import UserTodo from "../Comments/UserTodo";
 import Comments from "../Comments/Comments";
 import IAllComments from "../Comments/interface";
 import style from './NewsPage.module.scss';
+import { CircularProgress } from "@mui/material";
 
 const NewsPage: FC = () => {
     const [comment, setComment] = useState<IAllComments[]>([]);
 
-    const addHandler = (tittle: string) => {
+    const addHandler = (tittle: string, nameUser: string) => {
         const newComment: IAllComments = {
-            tittle: tittle,
             id: Date.now(),
+            tittle: tittle,
+            nameUser: nameUser,
+            
         }
         setComment(prev => [newComment, ...prev])
         
     }
 
     const removeHandler = (id: number) => {
-        const question = window.confirm("Вы точно хотите удалить комментарий")
+        const question = window.confirm("Вы точно хотите удалить комментарий?")
         if (question) {
             setComment(prev => prev.filter(user => user.id !== id))
         }
@@ -31,8 +34,6 @@ const NewsPage: FC = () => {
     const dispatch = useDispatch();
     const { id } = useParams();
     const newsDescription = useSelector((state: RootState) => state.newsDescription);
-    console.log(newsDescription);
-    
     
     useEffect(() => {
         dispatch(getNewsDescription(Number(id)));
@@ -47,24 +48,15 @@ const NewsPage: FC = () => {
     return (
         <PageLayout>
             <div className={style.wrapper}>
-                {newsDescription && (
-                    <div>
-                        {/* {newsDescription} */}
-                    </div>
+                {!newsDescription[id!] && (<div className={style.circular}><CircularProgress/></div>)}
+                {newsDescription[id!] && (
+                    <>
+                    <img className={style.foto} src={newsDescription[id!]?.imageUrl} alt="foto" />
+                    <p className={style.summary}>{newsDescription[id!]?.summary}</p>
+                    <Comments onAdd={addHandler} />
+                    <UserTodo userTodos={comment}onRemove={removeHandler} />
+                    </>
                 )} 
-                <img className={style.foto} src="https://turkmenportal.com/images/uploads/blogs/4435bf06476c70aa9aae22e3e4f589a7.jpg" alt="foto"  /> 
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                     Natus aut impedit eos excepturi quaerat illo distinctio ipsa quae, fugit beatae temporibus
-                     ipsam cupiditate animi quod consequatur aspernatur laboriosam praesentium perspiciatis!
-                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos 
-                     voluptate eius unde a vel quas, ut ipsa odio, itaque officiis quaerat
-                    delectus porro eligendi laborum atque nesciunt incidunt quia architecto.
-                </p>  
-                <div>{newsDescription[id!] && newsDescription[id!]?.title}</div>
-                <Comments onAdd={addHandler}/>
-                <UserTodo userTodos={comment}
-                onRemove={removeHandler}
-                />
             </div>
         </PageLayout>
             

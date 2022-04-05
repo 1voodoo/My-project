@@ -1,4 +1,6 @@
 export default interface IAllComments {
-  tittle: string;
   id: number;
+  tittle: string;
+  nameUser: string;
+  
 }

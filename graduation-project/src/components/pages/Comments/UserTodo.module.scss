@@ -6,27 +6,66 @@
   font-weight: 500;
   font-size: large;
   font-family: 'Times New Roman', Times, serif;
+  margin: 5px 0;
 }
 .foto {
   width: 60px;
   height: 60px;
+  border-radius: 50%;
 }
 .container {
-  width: 1000px;
+  width: 430px;
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+  background-color: #e7edf3;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 50px rgb(0, 0, 0, 0.2);
+}
+
+.container:not(:first-child) {
+  margin-left: 1rem;
+}
+.container:nth-child(3) {
+  margin-left: 3rem;
+}
+.container:nth-child(4) {
+  margin-left: 6rem;
+}
+.container:nth-child(5) {
+  margin-left: 9rem;
+}
+.container:nth-child(6) {
+  margin-left: 12rem;
+}
+.container:nth-child(7) {
+  margin-left: 15rem;
+}
+.container:nth-child(8) {
+  margin-left: 18rem;
+}
+.container:nth-child(9) {
+  margin-left: 21rem;
+}
+.container:nth-child(10) {
+  margin-left: 24rem;
 }
 .userContainer {
-  display: flex;
   flex-direction: column;
   margin-left: 10px;
+ 
 }
 .user {
   font-weight: 700;
   font-size: larger;
-  color: blue;
+  color: rgb(142, 142, 231);
+  line-height: 0.65;
 }
 .userContainer .icon {
   align-self: flex-end;
+}
+.containerMain {
+  width: 70%;
 }

@@ -5,10 +5,11 @@ import style from './UserTodo.module.scss';
  interface IUserTodo {
    userTodos: IAllComments[];
    onRemove(id: number): void;
+   
  }
 const UserTodo: FC<IUserTodo> = ({ userTodos, onRemove}) => {
   return (<>
-    <div>
+    <div className={style.containerMain}>
         {userTodos.map(user => {
           return (
             <div className={style.container} key={user.id}>
@@ -17,8 +18,8 @@ const UserTodo: FC<IUserTodo> = ({ userTodos, onRemove}) => {
                 alt="foto"  
                 />
                 <div className={style.userContainer}>
-                  <p className={style.user}>{user.nameUser}</p>
-                  <p className={style.tittle}>{user.tittle}</p>
+                  <p className={style.user}>{user.tittle}</p>
+                  <p className={style.tittle}>{user.nameUser}</p>
                   <img className={style.icon} 
                   onClick={() => onRemove(user.id)} 
                   src="https://cdn-icons-png.flaticon.com/512/1483/1483063.png"

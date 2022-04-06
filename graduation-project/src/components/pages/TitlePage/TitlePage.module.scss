@@ -36,11 +36,13 @@
     padding: 17px;
     background-color: #f0f4f8;
     border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
     
     .title {
         text-align: center;
         color: rgb(34, 159, 176);
         margin: 8px 0;
+       
     }
 }
 .main {
@@ -77,4 +79,16 @@ a {
 }
 .select {
    margin: 10px 0;
+}
+.heart {
+    border: none;
+    color: rgb(9, 9, 9);
+    font-size: 32px;
+    background: none;
+}
+.heart1 {
+    border: none;
+    color: rgb(247, 7, 7);
+    font-size: 32px;
+    background: none;
 }

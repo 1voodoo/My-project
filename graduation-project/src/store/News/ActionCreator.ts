@@ -7,3 +7,4 @@ export const getAllNews = createAsyncThunk(NewsActionType.GetAll, () => {
   return getNews();
 
 });
+

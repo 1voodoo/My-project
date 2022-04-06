@@ -66,3 +66,19 @@
 .container {
     background-color: black;
 }
+.MainContainer {
+    max-width: 1450px;
+    margin: 0 auto;
+    .Sceleton {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        align-items: center;
+        .SceletonText {
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+    }
+}
+
+    

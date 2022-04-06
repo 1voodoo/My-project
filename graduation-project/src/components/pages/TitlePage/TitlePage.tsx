@@ -1,5 +1,6 @@
 import { Button, CircularProgress, FormControl, InputLabel, MenuItem, Select, SelectChangeEvent} from "@mui/material";
 import { Box } from "@mui/system";
+import clsx from "clsx";
 import { FC, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -13,6 +14,19 @@ const TitlePage: FC = () => {
     const dispatch = useDispatch();
     const { allNews } = useSelector((state: RootState) => state.GetAllNews);
     const [category, setCategory] = useState('');
+
+    const [buttonPressed, setButtonPressed] = useState(false);
+    console.log(buttonPressed);
+    
+    const handleOnClickHeart = (id: number) => {
+       if(!buttonPressed && id === id){
+         console.log(id);
+         
+          setButtonPressed(true)
+       } else  {
+         setButtonPressed(false)
+       }
+    }
     
     const handleChange = (event: SelectChangeEvent<string>) => {
         setCategory(event.target.value);
@@ -27,6 +41,8 @@ const TitlePage: FC = () => {
     useEffect(() => {
         dispatch(getAllNews());
     }, [dispatch]);
+
+    
 
     return (<>
                 <div className={style.wrapper}>
@@ -71,7 +87,10 @@ const TitlePage: FC = () => {
                                         onClick={() => newsDescription(info.id)}>
                                         description
                                     </Button>
-                                    <p>like</p>
+                                      <button
+                                        onClick={() => handleOnClickHeart(info.id)} 
+                                        className={clsx(buttonPressed && info.id ? style.heart1 : style.heart)}>❤
+                                     </button>
                                 <a href={info.url}>reade more</a>
                                 </div>
                                 <p className={style.newsReleasw}>News release: {info.publishedAt.slice(0, 10)}</p>

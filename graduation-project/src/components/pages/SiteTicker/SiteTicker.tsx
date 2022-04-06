@@ -1,3 +1,4 @@
+import { Skeleton, Avatar, Typography, Stack } from "@mui/material";
 import { FC, useEffect, useState } from "react";
 import getBitcoin, { IBitcon } from "../../../api/getBitcoin";
 import style from './SiteTicker.module.scss'
@@ -15,7 +16,28 @@ const SiteTicker: FC = () => {
     }, []);
     return (
         <div>
-                {/* {!bitcoin && (<div className={style.circular}><CircularProgress/></div>)} */}
+            <div className={style.MainContainer}>
+                {!bitcoin && (
+                    <Stack spacing={1} className={style.Sceleton}>
+                        <Skeleton className={style.SceletonText} variant="text" width={80} />
+                        <Skeleton variant="circular" width={60} height={60} />
+                        <Skeleton className={style.SceletonText} variant="text" width={80} />
+                        <Skeleton variant="circular" width={60} height={60} />
+                        <Skeleton className={style.SceletonText} variant="text" width={80} />
+                        <Skeleton variant="circular" width={60} height={60} />
+                        <Skeleton className={style.SceletonText} variant="text" width={80} />
+                        <Skeleton variant="circular" width={60} height={60} />
+                        <Skeleton className={style.SceletonText} variant="text" width={80} />
+                        <Skeleton variant="circular" width={60} height={60} />
+                        <Skeleton className={style.SceletonText} variant="text" width={80} />
+                        <Skeleton variant="circular" width={60} height={60} />
+                        <Skeleton className={style.SceletonText} variant="text" width={80} />
+                        <Skeleton variant="circular" width={60} height={60} />
+                        <Skeleton className={style.SceletonText} variant="text" width={80} />
+                        <Skeleton variant="circular" width={60} height={60} />
+                    </Stack>
+                )}
+                </div>
                 {bitcoin && (
                     <div className={style.container}>
                         <div className={style.containerOwerflow}>

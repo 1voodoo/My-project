@@ -2,49 +2,65 @@ import { Button, TextField } from "@mui/material";
 import React, { useState } from "react"
 import { FC } from "react";
 import style from './Comments.module.scss';
-import validateCreateSafeCommentForm from "./validateCreateSafeCommentForm";
+import validateCreateSafeCommentForm, { IValidateCreateSafeCommentFormResult } from "./validateCreateSafeCommentForm";
 
-const Comments: FC<{onAdd(tittle: string, nameUser: string): void}> = props => {
-  const [text, setText] = useState<string>('')
+
+const Comments: FC<{onAdd(nameUser: string, tittle: string): void}> = props => {
   const [user, setUser] = useState<string>('')
-  console.log(text);
+  const [text, setText] = useState<string>('')
+  const [errors, setErrors] = useState<IValidateCreateSafeCommentFormResult>({})
   console.log(user);
-  const errors = validateCreateSafeCommentForm({text, user});
-  const isDisabled = Object.keys(errors).length > 0;
-  const handleOnChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setText(event.target.value)
+  console.log(text);
+  console.log(errors);
+
+  const isCreateDisbled = () => {
+    const errors = validateCreateSafeCommentForm({user, text});
+    return Object.keys(errors).length > 0;
   }
   const handleOnChangeUser = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setUser(event.target.value)
+    setUser(event.target.value);
+    setErrors({ ...errors, user: undefined })
+  }
+
+  const handleOnChangeText = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setText(event.target.value)
+  }
+  
+
+  const handleOnUserBlur = () => {
+    const newErrors = validateCreateSafeCommentForm({user, text});
+    setErrors(newErrors);
   }
 
   const keyPressHandler = () => {
-      props.onAdd(text, user)
-      setText('');
+      props.onAdd(user, text)
       setUser('');
-     
+      setText('');       
   } 
   
   return (
     <div className={style.container}>
       <p className={style.textHeader}>Comments</p>
-      <TextField
-        error={!!errors.user}
-        helperText={errors.user} 
-        placeholder='Your name'
-        value={user}
-        onChange={handleOnChangeUser} 
-      />
-      <textarea 
+        <TextField className={style.lol}
+          error={!!errors.user}
+          helperText={errors.user} 
+          placeholder='Your name'
+          value={user}
+          onChange={handleOnChangeUser}
+          onBlur={handleOnUserBlur} 
+        />
+      <textarea
+      required
+      maxLength={40} 
       className={style.textarea}
       value={text} 
-      onChange={handleOnChange} 
+      onChange={handleOnChangeText} 
       placeholder="Your Comment" 
       >
       </textarea>
       <div className={style.contanerBtn}>
         <Button
-          disabled={isDisabled}
+          disabled={isCreateDisbled()}
           className={style.btn} 
           onClick={keyPressHandler}
           variant="contained">

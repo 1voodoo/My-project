@@ -25,5 +25,3 @@ const getNews = async (): Promise<INews[] > => {
         
 }
 export default getNews;
-
-

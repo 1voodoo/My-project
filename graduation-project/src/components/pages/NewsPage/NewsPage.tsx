@@ -20,14 +20,14 @@ const NewsPage: FC = () => {
             nameUser: nameUser,
             
         }
-        setComment(prev => [newComment, ...prev])
+        setComment(previous => [newComment, ...previous])
         
     }
 
     const removeHandler = (id: number) => {
         const question = window.confirm("Вы точно хотите удалить комментарий?")
         if (question) {
-            setComment(prev => prev.filter(user => user.id !== id))
+            setComment(previous => previous.filter(user => user.id !== id))
         }
     }
 
@@ -54,7 +54,7 @@ const NewsPage: FC = () => {
                     <img className={style.foto} src={newsDescription[id!]?.imageUrl} alt="foto" />
                     <p className={style.summary}>{newsDescription[id!]?.summary}</p>
                     <Comments onAdd={addHandler} />
-                    <UserTodo userTodos={comment}onRemove={removeHandler} />
+                    <UserTodo  userTodos={comment} onRemove={removeHandler} />
                     </>
                 )} 
             </div>

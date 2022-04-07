@@ -14,7 +14,6 @@ export interface INews {
 const getNewsID = async (id: number): Promise<INews | null> => {
 
     try{
-        
         const response = await axios.get<INews>(`https://api.spaceflightnewsapi.net/v3/articles/${id}`);
         
         return response.data;

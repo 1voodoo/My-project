@@ -6,7 +6,6 @@ import AppRoutes from './AppRoutes';
 import { store } from './store';
 import './index.scss';
 
-
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
@@ -17,4 +16,3 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
-

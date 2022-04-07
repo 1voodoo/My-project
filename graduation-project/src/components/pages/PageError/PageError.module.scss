@@ -1,0 +1,36 @@
+.Page404 {
+    max-width: 1450px;
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media (max-width: 618px) {
+        padding: 10px;
+      }
+    .btn {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        margin-left: 461px;
+        margin-top: 59px;
+        transform: rotate(-20deg);
+        @media (max-width: 618px) {
+            margin-left: 400px;
+          }
+    }
+}
+
+.fotoPage404 {
+    border-radius: 10px;
+    width: 600px;
+    height: 600px;
+    object-fit: cover;
+    position: absolute;
+    @media (max-width: 618px) {
+        width: 500px;
+        height: 500px;
+      }
+}

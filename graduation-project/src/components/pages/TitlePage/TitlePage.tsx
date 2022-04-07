@@ -1,6 +1,5 @@
 import { Button, CircularProgress, FormControl, InputLabel, MenuItem, Select, SelectChangeEvent} from "@mui/material";
 import { Box } from "@mui/system";
-import clsx from "clsx";
 import { FC, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -15,19 +14,6 @@ const TitlePage: FC = () => {
     const { allNews } = useSelector((state: RootState) => state.GetAllNews);
     const [category, setCategory] = useState('');
 
-    const [buttonPressed, setButtonPressed] = useState(false);
-    console.log(buttonPressed);
-    
-    const handleOnClickHeart = (id: number) => {
-       if(!buttonPressed && id === id){
-         console.log(id);
-         
-          setButtonPressed(true)
-       } else  {
-         setButtonPressed(false)
-       }
-    }
-    
     const handleChange = (event: SelectChangeEvent<string>) => {
         setCategory(event.target.value);
       };
@@ -38,11 +24,12 @@ const TitlePage: FC = () => {
         navigate(`/news/${id}`)
     };
 
+    const handleOnClickHeart = (id: number) => {
+      dispatch(id)
+    }
     useEffect(() => {
         dispatch(getAllNews());
     }, [dispatch]);
-
-    
 
     return (<>
                 <div className={style.wrapper}>
@@ -79,7 +66,7 @@ const TitlePage: FC = () => {
                         </div>
                         <div className={style.main}>{filterdNews!.map((info) => (
                             <div className={style.container} key={info.id}>
-                                <p>{info.newsSite}</p>
+                                <p className={style.newsSite}>{info.newsSite}</p>
                                 <img src={info.imageUrl} alt="foto" className={style.foto}/>
                                 <p className={style.title}>{info.title}</p>
                                 <div className={style.box}>
@@ -88,9 +75,10 @@ const TitlePage: FC = () => {
                                         description
                                     </Button>
                                       <button
-                                        onClick={() => handleOnClickHeart(info.id)} 
-                                        className={clsx(buttonPressed && info.id ? style.heart1 : style.heart)}>❤
-                                     </button>
+                                        onClick={() => handleOnClickHeart(info.id)}
+                                        >
+                                
+                                        ❤</button>
                                 <a href={info.url}>reade more</a>
                                 </div>
                                 <p className={style.newsReleasw}>News release: {info.publishedAt.slice(0, 10)}</p>

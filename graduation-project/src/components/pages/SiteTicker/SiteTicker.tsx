@@ -1,4 +1,4 @@
-import { Skeleton, Avatar, Typography, Stack } from "@mui/material";
+import { Skeleton, Stack } from "@mui/material";
 import { FC, useEffect, useState } from "react";
 import getBitcoin, { IBitcon } from "../../../api/getBitcoin";
 import style from './SiteTicker.module.scss'
@@ -9,11 +9,12 @@ const SiteTicker: FC = () => {
     const getApiBitcoin = async () => {
         const bitcon = await getBitcoin();
         setBitcoin(bitcon)
-    }
+    };
 
     useEffect(() => {
         getApiBitcoin();
     }, []);
+
     return (
         <div>
             <div className={style.MainContainer}>

@@ -1,0 +1,51 @@
+module.exports = {
+  "extends": [
+    "react-app",
+    "airbnb",
+    "plugin:jsx-a11y/recommended",
+    "prettier"
+  ],
+  "plugins": [
+    "jsx-a11y",
+    "prettier"
+  ],
+  rules: {
+    'react/react-in-jsx-scope': 0,
+    'import/no-unresolved' : 0,
+    'import/extensions': 0,
+    'no-alert': 'off',
+    'react/jsx-curly-brace-presence': 'off',
+    'react/button-has-type': 'off',
+    'jsx-a11y/no-noninteractive-element-interactions': 'off',
+    'react/self-closing-comp': 0,
+    'import/no-duplicates': 'off',
+    'jsx-a11y/no-noninteractive-element-intera': 'off',
+    'react/jsx-no-useless-fragment': 'off',
+    'object-shorthand': 'off',
+    'no-unused-vars': 'off',
+    'react/function-component-definition': 'off',
+    'arrow-body-style': 'off',
+    'react/jsx-filename-extension': 'off',
+    'react/prop-types': 'off',
+    'no-shadow': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'react-hooks/rules-of-hooks': 'warn',
+    '@typescript-eslint/camelcase': 'off',
+    'no-underscore-dangle': 'off',
+    'jsx-a11y/click-events-have-key-events': 'off',
+    'jsx-a11y/no-static-element-interactions': 'off',
+    'react/no-unescaped-entities': 'off',
+    'react/no-array-index-key': 'off',
+    '@typescript-eslint/no-use-before-define': 'off',
+    'import/order': 'off',
+    'jsx-a11y/label-has-associated-control': 'off',
+    'no-plusplus': 'off',
+    'class-methods-use-this': 'off',
+    'no-param-reassign': 'off',
+    'eol-last': ['error', 'always'],
+    'react/require-default-props': 'off',
+    'react/destructuring-assignment': 0,
+    'import/prefer-default-export': 'off'
+  },
+ 
+};

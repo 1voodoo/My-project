@@ -2,6 +2,7 @@
 * {
   font-family: 'Roboto', sans-serif;
 }
+
 body {
   background-color: white;
   margin: 0 auto;
@@ -9,6 +10,10 @@ body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+
+  @media (max-width: 1585px) {
+    padding: 0 10px;
+  }
 }
 *::before,
 *::after {

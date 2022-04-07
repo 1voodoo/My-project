@@ -23,6 +23,10 @@
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 0 50px rgb(0, 0, 0, 0.2);
+  @media (max-width: 1465px) {
+    box-shadow: none;
+  }
+  
 }
 
 .container:not(:first-child) {
@@ -52,6 +56,36 @@
 .container:nth-child(10) {
   margin-left: 24rem;
 }
+.container:nth-child(11) {
+  margin-left: 27rem;
+}
+.container:nth-child(12) {
+  margin-left: 30rem;
+}
+.container:nth-child(13) {
+  margin-left: 33rem;
+}
+.container:nth-child(14) {
+  margin-left: 36rem;
+}
+.container:nth-child(15) {
+  margin-left: 39rem;
+}
+.container:nth-child(16) {
+  margin-left: 41rem;
+}
+.container:nth-child(17) {
+  margin-left: 44rem;
+}
+.container:nth-child(18) {
+  margin-left: 47rem;
+}
+.container:nth-child(19) {
+  margin-left: 50rem;
+}
+.container:nth-child(20) {
+  margin-left: 53rem;
+}
 .userContainer {
   flex-direction: column;
   margin-left: 10px;
@@ -68,4 +102,29 @@
 }
 .containerMain {
   width: 70%;
+  @media (max-width: 1460px) {
+    width: 70%;
+    overflow: scroll;
+    overflow-x: auto;
+  }
+  @media (max-width: 1113px) {
+    overflow: scroll;
+    overflow-x: auto;
+  }
+  @media (max-width: 1072px) {
+    width: 95%;
+    overflow: scroll;
+    overflow-x: auto;
+  }
+  @media (max-width: 759px) {
+    overflow: scroll;
+    overflow-x: auto;
+  }
+  @media (max-width: 790px) {
+    overflow: scroll;
+    overflow-x: auto;
+  }
+  @media (max-width: 547px) {
+    overflow: scroll;
+  }
 }

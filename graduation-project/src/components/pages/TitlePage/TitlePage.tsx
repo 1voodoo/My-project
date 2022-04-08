@@ -8,32 +8,31 @@ import { getAllNews } from "../../../store/News/ActionCreator";
 import SiteTicker from "../SiteTicker/SiteTicker";
 import style from "./TitlePage.module.scss";
 
-
 const TitlePage: FC = () => {
-    const dispatch = useDispatch();
-    const { allNews } = useSelector((state: RootState) => state.GetAllNews);
-    const [category, setCategory] = useState('');
+  const dispatch = useDispatch();
+  const { allNews } = useSelector((state: RootState) => state.GetAllNews);
+  const [category, setCategory] = useState('');
 
-    const handleChange = (event: SelectChangeEvent<string>) => {
-        setCategory(event.target.value);
+  const handleChange = (event: SelectChangeEvent<string>) => {
+    setCategory(event.target.value);
       };
-    const filterdNews = allNews?.filter(item => !category || item.newsSite === category);
-    const navigate = useNavigate();
+  const filterdNews = allNews?.filter(item => !category || item.newsSite === category);
+  const navigate = useNavigate();
 
-    const newsDescription = (id: number) => {
-        navigate(`/news/${id}`)
-    };
+  const newsDescription = (id: number) => {
+      navigate(`/news/${id}`)
+  };
 
-    const handleOnClickHeart = (id: number) => {
-      dispatch(id)
-    }
-    useEffect(() => {
-        dispatch(getAllNews());
-    }, [dispatch]);
+  const handleOnClickHeart = (id: number) => {
+    dispatch(id)
+  }
+  useEffect(() => {
+      dispatch(getAllNews());
+  }, [dispatch]);
 
-    return (<>
-                <div className={style.wrapper}>
-                  <div className={style.Header}>
+  return (<>
+              <div className={style.wrapper}>
+                <div className={style.Header}>
                     <img className={style.HeaderFoto} src="https://cdn.shopify.com/s/files/1/2143/6539/files/WP-logo.png?height=628&pad_color=fff&v=1571765552&width=1200" alt="foto"  />
                   </div>
                 </div>
@@ -65,29 +64,25 @@ const TitlePage: FC = () => {
                           </Box>
                         </div>
                         <div className={style.main}>{filterdNews!.map((info) => (
-                            <div className={style.container} key={info.id}>
-                                <p className={style.newsSite}>{info.newsSite}</p>
-                                <img src={info.imageUrl} alt="foto" className={style.foto}/>
-                                <p className={style.title}>{info.title}</p>
-                                <div className={style.box}>
+                              <div className={style.container} key={info.id}>
+                                  <p className={style.newsSite}>{info.newsSite}</p>
+                                  <img src={info.imageUrl} alt="foto" className={style.foto}/>
+                                  <p className={style.title}>{info.title}</p>
+                                  <div className={style.box}>
                                     <Button className={style.btn} variant="contained"
                                         onClick={() => newsDescription(info.id)}>
                                         description
                                     </Button>
-                                      <button
-                                        onClick={() => handleOnClickHeart(info.id)}
-                                        >
-                                
-                                        ❤</button>
-                                <a href={info.url}>reade more</a>
-                                </div>
-                                <p className={style.newsReleasw}>News release: {info.publishedAt.slice(0, 10)}</p>
-                            </div>
+                                    <button onClick={() => handleOnClickHeart(info.id)}>❤</button>
+                                    <a href={info.url}>reade more</a>
+                                  </div>
+                                  <p className={style.newsReleasw}>News release: {info.publishedAt.slice(0, 10)}</p>
+                              </div>
                             ))}
                         </div>
                       </>)}
-                </div>          
-            </>
+              </div>          
+          </>
             );
 };
 

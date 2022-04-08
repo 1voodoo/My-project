@@ -14,7 +14,6 @@ const PageError: FC = () => {
             <div className={style.btn}>
             <Button  onClick={handleOnClick} variant="outlined" size="medium">HOME</Button>
             </div>
-            
         </div>
     );
 };

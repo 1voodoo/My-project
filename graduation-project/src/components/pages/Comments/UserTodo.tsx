@@ -5,7 +5,7 @@ import style from './UserTodo.module.scss';
  interface IUserTodo {
    userTodos: IAllComments[];
    onRemove(id: number): void;
- }
+ };
 
 const UserTodo: FC <IUserTodo> = ({ userTodos, onRemove}) => {
   return (<>

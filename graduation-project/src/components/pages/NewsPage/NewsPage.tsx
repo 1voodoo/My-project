@@ -19,17 +19,17 @@ const NewsPage: FC = () => {
             tittle: tittle,
             nameUser: nameUser,
             
-        }
-        setComment(previous => [newComment, ...previous])
+        };
+        setComment(previous => [newComment, ...previous]);
         
-    }
+    };
 
     const removeHandler = (id: number) => {
-        const question = window.confirm("Вы точно хотите удалить комментарий?")
+        const question = window.confirm("Вы точно хотите удалить комментарий?");
         if (question) {
-            setComment(previous => previous.filter(user => user.id !== id))
-        }
-    }
+            setComment(previous => previous.filter(user => user.id !== id));
+        };
+    };
 
     const dispatch = useDispatch();
     const { id } = useParams();
@@ -37,8 +37,8 @@ const NewsPage: FC = () => {
     
     useEffect(() => {
         dispatch(getNewsDescription(Number(id)));
-        const save = JSON.parse(localStorage.getItem('comment') || '[]') as IAllComments[]
-        setComment(save)
+        const save = JSON.parse(localStorage.getItem('comment') || '[]') as IAllComments[];
+        setComment(save);
     }, [dispatch, id]);
 
     useEffect(() => {
@@ -58,8 +58,7 @@ const NewsPage: FC = () => {
                     </>
                 )} 
             </div>
-        </PageLayout>
-            
+        </PageLayout>  
     );
 };
 

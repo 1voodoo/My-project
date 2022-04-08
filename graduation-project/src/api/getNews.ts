@@ -11,7 +11,6 @@ export interface INews {
 
 }
 
-
 const getNews = async (): Promise<INews[] > => {
     try{
         const response = await axios.get('https://api.spaceflightnewsapi.net/v3/articles?_limit=32');

@@ -1,11 +1,13 @@
 import { Button, CircularProgress, FormControl, InputLabel, MenuItem, Select, SelectChangeEvent} from "@mui/material";
 import { Box } from "@mui/system";
-import { FC, useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { RootState } from "../../../store";
 import { getAllNews } from "../../../store/News/ActionCreator";
-import SiteTicker from "../SiteTicker/SiteTicker";
+import Currency from "../../Currency/Currency";
+import SiteTicker from "../../SiteTicker/SiteTicker";
+import Weather from "../../Weather/Weather";
 import style from "./TitlePage.module.scss";
 
 const TitlePage: FC = () => {
@@ -17,6 +19,7 @@ const TitlePage: FC = () => {
     setCategory(event.target.value);
       };
   const filterdNews = allNews?.filter(item => !category || item.newsSite === category);
+  
   const navigate = useNavigate();
 
   const newsDescription = (id: number) => {
@@ -42,7 +45,7 @@ const TitlePage: FC = () => {
                     {!allNews && (<div className={style.circular}><CircularProgress/></div>)}
                     {allNews && ( <>
                         <div className={style.select}>
-                            <Box sx={{ maxWidth: 250 }} >
+                            <Box sx={{ minWidth: 250 }} >
                             <FormControl fullWidth>
                               <InputLabel id="demo-simple-select-label">Select news</InputLabel>
                               <Select
@@ -62,6 +65,8 @@ const TitlePage: FC = () => {
                               </Select>
                             </FormControl>
                           </Box>
+                          <Weather/>
+                          <Currency/>
                         </div>
                         <div className={style.main}>{filterdNews!.map((info) => (
                               <div className={style.container} key={info.id}>

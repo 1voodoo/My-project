@@ -92,7 +92,10 @@ a {
 }
 .select {
    margin: 10px 0;
-
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 .heart {
     border: none;
@@ -113,3 +116,4 @@ a {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: black;
 }
+

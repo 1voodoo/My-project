@@ -1,0 +1,29 @@
+.text{
+    text-align: end;
+    margin-right: 5px; 
+}
+.currensy {
+    display: flex;
+    flex-direction: column;
+}
+.ruletka {
+    display: flex;
+    justify-content: flex-end;
+}
+.valyta {
+    width: 66px;
+    height: 20px;
+    overflow: hidden;
+}
+.valyta1 {
+    animation-delay: 3s;
+    animation: marquee 10s infinite linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse; 
+}
+@keyframes marquee{
+    25%{-webkit-transform: translate(0, -25%);}
+    50%{-webkit-transform: translate(0, -50%);}
+    75%{-webkit-transform: translate(0, -75%);}
+    100%{-webkit-transform: translate(0, -100%);} 
+}

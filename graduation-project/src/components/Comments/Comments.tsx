@@ -2,7 +2,7 @@ import { Button, TextField } from "@mui/material";
 import React, { useState } from "react"
 import { FC } from "react";
 import style from './Comments.module.scss';
-import validateCreateSafeCommentForm, { IValidateCreateSafeCommentFormResult } from "./validateCreateSafeCommentForm";
+import validateCreateSafeCommentForm, { IValidateCreateSafeCommentFormResult } from "./UserTodo/validateCreateSafeCommentForm";
 
 const Comments: FC <{onAdd(nameUser: string, tittle: string): void}> = props => {
   const [user, setUser] = useState<string>('');

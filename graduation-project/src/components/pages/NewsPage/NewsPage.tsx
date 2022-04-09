@@ -3,15 +3,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { RootState } from "../../../store";
 import { getNewsDescription } from "../../../store/NewsDescription/ActionCreator";
-import PageLayout from "../PageLayout/PageLayout";
-import UserTodo from "../Comments/UserTodo";
-import Comments from "../Comments/Comments";
-import IAllComments from "../Comments/interface";
+import PageLayout from "../../PageLayout/PageLayout";
+import Comments from "../../Comments/Comments";
+import IAllComments from "../../Comments/interface";
 import style from './NewsPage.module.scss';
 import { CircularProgress } from "@mui/material";
+import UserTodo from "../../Comments/UserTodo/UserTodo";
+
 
 const NewsPage: FC = () => {
     const [comment, setComment] = useState<IAllComments[]>([]);
+    
 
     const addHandler = (tittle: string, nameUser: string) => {
         const newComment: IAllComments = {

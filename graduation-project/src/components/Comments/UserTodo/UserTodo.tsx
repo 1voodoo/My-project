@@ -1,5 +1,5 @@
 import { FC } from "react";
-import IAllComments from "./interface";
+import IAllComments from "../interface";
 import style from './UserTodo.module.scss';
 
  interface IUserTodo {

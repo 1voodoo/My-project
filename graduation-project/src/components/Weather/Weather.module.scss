@@ -1,0 +1,15 @@
+.headerInput {
+    border: 1px solid rgb(8, 237, 123);
+    border-radius: 20px;
+    padding-left: 10px;
+    margin-right: 5px;
+}
+
+.headerInput::placeholder {
+    color: rgb(149, 143, 143);  
+}
+.btn {
+    border: 1px solid rgb(8, 237, 123);
+    border-radius: 8px;
+    color: rgb(62, 60, 60);
+}

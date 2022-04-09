@@ -1,6 +1,6 @@
 import { Skeleton, Stack } from "@mui/material";
 import { FC, useEffect, useState } from "react";
-import getBitcoin, { IBitcon } from "../../../api/getBitcoin";
+import getBitcoin, { IBitcon } from "../../api/getBitcoin";
 import style from './SiteTicker.module.scss'
 
 const SiteTicker: FC = () => {

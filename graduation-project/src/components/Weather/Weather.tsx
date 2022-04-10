@@ -28,8 +28,9 @@ const Weather: FC =  () => {
         getWeather();
       },[initialValue]);
 
-    return (
-        <div>
+    return (<>
+      {weather && 
+        <div className={style.container}>
             <input
                 className={style.headerInput}
                 maxLength={10} 
@@ -43,11 +44,15 @@ const Weather: FC =  () => {
                 disabled={isDisabledBtn} 
                 onClick={handleNextCountry}>info
             </button>
-            <p>{initialValue} <span>{weather?.temperature ? weather?.temperature : 'ошибка'}</span></p>
-            <p>wind {weather?.wind ? weather?.wind : 'ошибка'}</p>
-            <p>{weather?.description}</p>
-      </div>
-    );
+            <div className={style.data}>
+              <p>{initialValue} <span>{weather?.temperature ? weather?.temperature : 'нет такого города'}</span></p>
+              <p>wind <span>{weather?.wind ?  weather?.wind : 'ошибка'}</span></p>
+              <p>{weather?.description}</p>
+            </div>
+        </div>
+      }
+      
+      </>);
 };
 
 export default Weather;

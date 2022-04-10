@@ -3,6 +3,7 @@
     border-radius: 20px;
     padding-left: 10px;
     margin-right: 5px;
+    margin-bottom: 5px;
 }
 
 .headerInput::placeholder {
@@ -12,4 +13,28 @@
     border: 1px solid rgb(8, 237, 123);
     border-radius: 8px;
     color: rgb(62, 60, 60);
+    background-color: none;
+    &:hover {
+        border: 1px solid rgb(40, 6, 118);
+    }
+}
+.data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    p {
+        color:rgb(10, 10, 10);
+        font-weight: bold;
+        font-size: 700;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        span {
+            color: red;
+        }
+    }
+}
+.container {
+    border: 1px solid rgb(149, 143, 143);
+    border-radius: 20px;
+    padding: 15px;
 }

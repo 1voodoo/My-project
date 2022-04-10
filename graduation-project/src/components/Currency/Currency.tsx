@@ -14,19 +14,21 @@ const Currency: FC =  () => {
 
     return (<>
         {currency && (
-            <div className={style.currensy}>
-                <p>Курс на {currency?.date}</p>
-                <div className={style.ruletka}>
-                    <p className={style.text}>EUR</p>
-                    <div className={style.valyta}>
-                        <div className={style.valyta1}>
-                            <p className={style.spanee}> {currency?.eur.byn.toFixed(1)} BYN</p>
-                            <p className={style.spanee}>  {currency?.eur.cny.toFixed(1)} CNY</p>
-                            <p className={style.spanee}> {currency?.eur.rub.toFixed(1)} RUB</p>
+            <div className={style.container}>
+                <div className={style.currensy}>
+                    <p className={style.data}>Курс на {currency?.date}</p>
+                    <div className={style.ruletka}>
+                        <p className={style.text}>EUR</p>
+                        <div className={style.valyta}>
+                            <div className={style.valyta1}>
+                                <p className={style.spanee}> {currency?.eur.byn.toFixed(1)} BYN</p>
+                                <p className={style.spanee}>  {currency?.eur.cny.toFixed(1)} CNY</p>
+                                <p className={style.spanee}> {currency?.eur.rub.toFixed(1)} RUB</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>    
         )}
        </> 
     );

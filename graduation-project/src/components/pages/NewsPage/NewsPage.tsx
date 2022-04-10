@@ -14,7 +14,6 @@ import UserTodo from "../../Comments/UserTodo/UserTodo";
 const NewsPage: FC = () => {
     const [comment, setComment] = useState<IAllComments[]>([]);
     
-
     const addHandler = (tittle: string, nameUser: string) => {
         const newComment: IAllComments = {
             id: Date.now(),

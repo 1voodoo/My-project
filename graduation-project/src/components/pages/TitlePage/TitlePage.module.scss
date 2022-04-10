@@ -54,6 +54,9 @@
     @media (max-width: 1595px) {
         padding: 0 0px;
       }
+      @media (max-width: 1412px) {
+        justify-content: space-around;
+      }
     @media (max-width: 1415px) {
         display: flex;
         flex-wrap: wrap;
@@ -63,6 +66,7 @@
       @media (max-width: 456px) {
         padding: 0 0px;
       }
+
       
 }
 a {
@@ -91,12 +95,25 @@ a {
     align-items: center;
 }
 .select {
-   margin: 10px 0;
+    margin: 10px 0;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
+        @media (max-width: 740px) {
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+      @media (max-width: 485px) {
+        justify-content: center;
+      }
+      @media (max-width: 487px) {
+        &:last-child {
+            align-self: start;
+        }
+      }
 }
+
 .heart {
     border: none;
     color: rgb(9, 9, 9);

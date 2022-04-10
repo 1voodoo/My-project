@@ -14,6 +14,11 @@ const TitlePage: FC = () => {
   const dispatch = useDispatch();
   const { allNews } = useSelector((state: RootState) => state.GetAllNews);
   const [category, setCategory] = useState('');
+  const [page, setPage] = useState(32);
+  
+  const handleOnMoreNews = () => {
+    setPage(page * 2);
+  };
 
   const handleChange = (event: SelectChangeEvent<string>) => {
     setCategory(event.target.value);
@@ -30,8 +35,8 @@ const TitlePage: FC = () => {
     dispatch(id)
   }
   useEffect(() => {
-      dispatch(getAllNews());
-  }, [dispatch]);
+      dispatch(getAllNews(page));
+  }, [page]);
 
   return (<>
               <div className={style.wrapper}>
@@ -86,6 +91,7 @@ const TitlePage: FC = () => {
                             ))}
                         </div>
                       </>)}
+                      <Button onClick={handleOnMoreNews}>More News</Button>
               </div>          
           </>
             );

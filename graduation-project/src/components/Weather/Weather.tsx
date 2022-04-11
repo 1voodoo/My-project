@@ -1,6 +1,6 @@
 
 import React, { FC, useEffect, useState } from 'react';
-import getApiWeather, { IWeather } from '../../api/getWeather';
+import getApiWeather, { IWeather, IWeatherForecast } from '../../api/getWeather';
 import style from './Weather.module.scss';
 
 const Weather: FC =  () => {
@@ -8,7 +8,8 @@ const Weather: FC =  () => {
     const [initialValue, setInitialValue] = useState('Минск');
     const [inputValue, setInputValue] = useState('');
     const [isDisabledBtn, setisDisabledBtn] = useState(true);
-    
+    const date1 = String(new Date()).slice(0, 3);
+
     const getWeather = async() => {
         const weather = await getApiWeather(initialValue);
         setWeather(weather);
@@ -45,7 +46,7 @@ const Weather: FC =  () => {
                 onClick={handleNextCountry}>info
             </button>
             <div className={style.data}>
-              <p>{initialValue} <span>{weather?.temperature ? weather?.temperature : 'нет такого города'}</span></p>
+              <p>{initialValue} <span>{weather?.temperature ? `${weather?.temperature} ${date1}` : 'нет такого города'}</span></p>
               <p>wind <span>{weather?.wind ?  weather?.wind : 'ошибка'}</span></p>
               <p>{weather?.description}</p>
             </div>

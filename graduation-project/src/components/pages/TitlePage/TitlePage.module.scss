@@ -40,8 +40,10 @@
     
     .title {
         text-align: center;
-        color: rgb(34, 159, 176);
+        color: #666;
         margin: 8px 0;
+        font-weight: 900;
+        font-size: 15px;
        
     }
 }
@@ -119,6 +121,9 @@ a {
     color: rgb(9, 9, 9);
     font-size: 32px;
     background: none;
+    &:hover {
+        background-color: rgb(148, 183, 148);
+    }
 }
 .heart1 {
     border: none;

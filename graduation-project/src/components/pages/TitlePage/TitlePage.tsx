@@ -15,6 +15,7 @@ const TitlePage: FC = () => {
   const { allNews } = useSelector((state: RootState) => state.GetAllNews);
   const [category, setCategory] = useState('');
   const [page, setPage] = useState(32);
+  // const [buttonPressed, setButtonPressed] = useState(false);
   
   const handleOnMoreNews = () => {
     setPage(page * 2);
@@ -30,10 +31,18 @@ const TitlePage: FC = () => {
   const newsDescription = (id: number) => {
       navigate(`/news/${id}`)
   };
-
-  const handleOnClickHeart = (id: number) => {
-    dispatch(id)
-  }
+  // const handleOnClickHeart = (id: number) => {
+  //   const lol = filterdNews?.find(item => item.id === id) ;
+  //   console.log(lol?.id);
+  //   if(lol?.id === id) {
+  //     setButtonPressed(true);
+  //   }
+    
+  //   // if (filterdNews!.filter(item => item.id !== id)) {
+  //   //   setButtonPressed(true)
+  //   //   console.log(`lol${id}`);
+  //   // }
+  // }
   useEffect(() => {
       dispatch(getAllNews(page));
   }, [page]);
@@ -83,7 +92,10 @@ const TitlePage: FC = () => {
                                         onClick={() => newsDescription(info.id)}>
                                         description
                                     </Button>
-                                    <button onClick={() => handleOnClickHeart(info.id)}>❤</button>
+                                    {/* <button
+                                      className={clsx(buttonPressed && style.heart1)} 
+                                      onClick={() => handleOnClickHeart(info.id)}>❤
+                                    </button> */}
                                     <a href={info.url}>reade more</a>
                                   </div>
                                   <p className={style.newsReleasw}>News release: {info.publishedAt.slice(0, 10)}</p>

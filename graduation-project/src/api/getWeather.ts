@@ -4,12 +4,6 @@ export interface IWeather {
     temperature: string;
     wind: string;
     description: string;
-    forecast: IWeatherForecast[];
-}
-export interface IWeatherForecast {
-    day: string;
-    temperature: string;
-    wind: string;
 }
 
 const getApiWeather = async (city: string): Promise<IWeather> => {

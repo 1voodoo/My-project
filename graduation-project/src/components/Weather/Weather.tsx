@@ -1,6 +1,5 @@
-
 import React, { FC, useEffect, useState } from 'react';
-import getApiWeather, { IWeather, IWeatherForecast } from '../../api/getWeather';
+import getApiWeather, { IWeather } from '../../api/getWeather';
 import style from './Weather.module.scss';
 
 const Weather: FC =  () => {

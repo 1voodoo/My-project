@@ -11,7 +11,6 @@ module.exports = {
   ],
   rules: {
     "eol-last": "off",
-    'eol-last': ["error", "never"],
     'react/react-in-jsx-scope': 0,
     'import/no-unresolved' : 0,
     'import/extensions': 0,
@@ -44,11 +43,9 @@ module.exports = {
     'no-plusplus': 'off',
     'class-methods-use-this': 'off',
     'no-param-reassign': 'off',
-    'eol-last': ['error', 'always'],
     'react/require-default-props': 'off',
     'react/destructuring-assignment': 0,
     'import/prefer-default-export': 'off',
-    "eol-last": 0,
   },
  
 };

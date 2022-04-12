@@ -103,7 +103,10 @@ const TitlePage: FC = () => {
                             ))}
                         </div>
                       </>)}
-                      <Button onClick={handleOnMoreNews}>More News</Button>
+                      <div className={style.lastBtn}>
+                        <Button onClick={handleOnMoreNews} variant="outlined">More News</Button>
+                      </div>
+                      
               </div>          
           </>
             );

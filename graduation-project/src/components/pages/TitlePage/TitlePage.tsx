@@ -59,17 +59,17 @@ const TitlePage: FC = () => {
                     {!allNews && (<div className={style.circular}><CircularProgress/></div>)}
                     {allNews && ( <>
                         <div className={style.select}>
-                            <Box sx={{ minWidth: 250 }} >
-                            <FormControl fullWidth>
-                              <InputLabel id="demo-simple-select-label">Select news</InputLabel>
-                              <Select
+                            <Box  className={style.boxSelect}>
+                            <FormControl className={style.FormControl1}> 
+                              <InputLabel className={style.FormControlInputLabel} id="demo-simple-select-label">Select news</InputLabel>
+                              <Select className={style.FormControlInputLabelSelect}
                                 labelId="demo-simple-select-label"
                                 id="demo-simple-select"
                                 value={category}
                                 label="Select news"
                                 onChange={handleChange}
                               >
-                                <MenuItem value={''}>All News</MenuItem>
+                                <MenuItem className={style.FormControlInputLabelSelectMenuItem} value={''}>All News</MenuItem>
                                 <MenuItem value={"SpaceNews"}>Space News</MenuItem>
                                 <MenuItem value={"Teslarati"}>Teslarati</MenuItem>
                                 <MenuItem value={"NASA"}>NASA</MenuItem>
@@ -96,9 +96,9 @@ const TitlePage: FC = () => {
                                       className={clsx(buttonPressed && style.heart1)} 
                                       onClick={() => handleOnClickHeart(info.id)}>❤
                                     </button> */}
-                                    <a href={info.url}>reade more</a>
+                                    <a href={info.url}>read more</a>
                                   </div>
-                                  <p className={style.newsReleasw}>News release: {info.publishedAt.slice(0, 10)}</p>
+                                  <p className={style.newsReleas}>News release: {info.publishedAt.slice(0, 10)}</p>
                               </div>
                             ))}
                         </div>

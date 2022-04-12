@@ -26,7 +26,10 @@
     flex-wrap: nowrap;
     gap: 20px;
     -webkit-animation: marquee 190s infinite linear;
-    animation: marquee 190s infinite linear;  
+    animation: marquee 190s infinite linear;
+    @media (max-width: 478px) {
+        padding: 5px 0;
+      }  
 }
 
 
@@ -77,6 +80,14 @@
         .SceletonText {
             margin-left: 20px;
             margin-right: 20px;
+            @media (max-width: 850px) {
+                margin-left: 10px;
+                margin-right: 10px;
+              }
+              @media (max-width: 721px) {
+                margin-left: 5px;
+                margin-right: 5px;
+              }
         }
     }
 }

@@ -3,7 +3,10 @@
 /node_modules
 /.pnp
 .pnp.js
-
+startup-summer/
+/startup-summer
+.startup-summer/
+/startup-summer/
 # testing
 /coverage
 

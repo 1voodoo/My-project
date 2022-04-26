@@ -114,10 +114,10 @@
     font-size: 32px;
     line-height: 130%;
     color: #000000;
+    margin-bottom: 29px;
 }
 .pageUser {
     display: flex;
-    justify-content: space-between;
     width: 100%;
     min-height: 100vh;
     
@@ -179,7 +179,7 @@
 }
 .containerInfoEmty {
     margin-top: 197px;
-    margin-right: 372px;
+    margin-left: 414px;
 }
 .userContainer {
     padding: 39px 0 0 57px;
@@ -187,4 +187,31 @@
 .containerFull {
   padding-right: 56px;
   padding-top: 28px;
+  margin-left: 85px;
+}
+.repo {
+    background: #FFFFFF;
+    border-radius: 6px;
+    padding: 24px 32px;
+    // width: 100%;
+    &:not(:last-child) {
+        margin-bottom: 24px;
+    }
+}
+.repoTittle {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    color: #0064EB;
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+.repoDescription {
+    margin-top: 16px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000;
 }

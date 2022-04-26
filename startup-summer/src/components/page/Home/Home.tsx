@@ -7,13 +7,19 @@ import Union from '../../image/Union.png'
 import followers from '../../image/followers.png'
 import following from '../../image/following.png'
 import Uniondel from '../../image/Uniondel.png'
-import getApi, { IUsers } from "../../Api/Api";
+import getApiRepo, { IRepo } from "../../Api/getApiRepo";
+import getApiUser, { IUsers }from "../../Api/getApiUser";
+import { CircularProgress } from "@mui/material";
+
 
 const Home: FC = () => {
     const [userName, setUserName] = useState<string>("");
     const [input, setUnput] = useState<string>("");
     const [user, setUser] = useState<IUsers | null>(null);
+    const [repo, setRepo] = useState<IRepo[] | null>(null);
     console.log(user);
+    console.log(repo);
+    
     
     const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setUnput(event.target.value);
@@ -24,18 +30,24 @@ const Home: FC = () => {
         };
     };
 
-    const getApiUser = async () => {
-        const user = await getApi(userName);
+    const getApiRepoAll = async () => {
+        const repo = await getApiRepo(userName);
+        setRepo(repo);
+    }
+
+    const getApiUserInfo = async () => {
+        const user = await getApiUser(userName);
         setUser(user);
     };
+
     useEffect(() => {
         if (userName) {
-            getApiUser();
-
+            getApiUserInfo();
+            getApiRepoAll();
         }
         if (userName ===  user?.login) {
-            getApiUser();
-
+            getApiUserInfo();
+            getApiRepoAll();
         }
        
     },[userName]);
@@ -52,7 +64,7 @@ const Home: FC = () => {
                 </form>     
             </div>
             <div className={style.main}>
-                {/* {!user && (<div>Loading...</div>)} */}
+                {/* {!user && <CircularProgress />} */}
                 {userName === "" && (<>
                     <img className={style.searchBig} src={imagBig} alt="icon" />
                     <h2 className={style.title}>Start with searching a GitHub user</h2>
@@ -70,7 +82,7 @@ const Home: FC = () => {
                                 <div className={style.followersContainer}>
                                     <p className={style.followers}>
                                         <img src={followers} alt="icon" />
-                                        {user.followers} followers
+                                        {user.followers > 1000 ? user.followers + 'k' : user.followers} followers
                                     </p>
                                     <p className={style.following}>
                                         <img src={following} alt="icon" />
@@ -78,12 +90,21 @@ const Home: FC = () => {
                                     </p>
                                 </div> 
                             </div>
-                            <div className={style.userInfo}>
+                            
                                {user.public_repos 
                                ?
-                               <div className={style.containerFull}>
-                                    <p className={style.numberRepo}>Repositories({user.public_repos})</p>
-                               </div> 
+                                <div className={style.containerFull}>
+                                    <p className={style.numberRepo}>Repositories ({user.public_repos})</p>
+                                    {repo && (<>
+                                        {repo.map(item => (
+                                            <div className={style.repo}>
+                                                <a className={style.repoTittle} href={item.html_url} target="_blank">{item.name}</a>
+                                                <p className={style.repoDescription}>{item.description}</p>
+                                            </div>
+                                        ))}
+                                        
+                                    </>)}
+                                </div> 
                                
                                : 
                                 <div className={style.containerInfoEmty}>
@@ -93,7 +114,7 @@ const Home: FC = () => {
                                     </div>
                                 </div>
                                 }
-                            </div>
+                            
                 </div>)}    
             </div>
         </div>

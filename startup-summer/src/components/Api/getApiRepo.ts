@@ -4,6 +4,7 @@ export interface IRepo {
     description: string;
     name: string;
     html_url: string;
+    id: number;
 };
 
 const getApiRepo = async (name: string): Promise<IRepo[] | null> => {

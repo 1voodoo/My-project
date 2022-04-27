@@ -193,9 +193,13 @@
     background: #FFFFFF;
     border-radius: 6px;
     padding: 24px 32px;
-    // width: 100%;
     &:not(:last-child) {
         margin-bottom: 24px;
+    }
+    &:last-child {
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
     }
 }
 .repoTittle {
@@ -215,3 +219,7 @@
     line-height: 19px;
     color: #000000;
 }
+// .lol {
+//     overflow: scroll;
+    
+// }

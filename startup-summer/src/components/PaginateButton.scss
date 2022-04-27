@@ -1,0 +1,35 @@
+.Pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    outline: transparent;
+
+    & > li {
+        margin: 2px;
+        height: 30px;
+        width: 30px;
+    }
+    & > li > a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 30px;
+        width: 30px;
+        color: aqua;
+        background-color: transparent;
+        border: 1px solid red;
+        border-radius: 4px;
+        cursor: pointer;
+        outline: transparent;
+
+        &:hover {
+            background: red;
+        }
+    }
+    & > .Pagination__active {
+        background-color: aquamarine;
+        border-color: black;
+        color: wheat;
+    }
+}

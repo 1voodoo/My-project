@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from "react";
 import style from './Home.module.scss';
-import kitten from '../../image/Vector.jpg'
+import kitten from '../../image/Vector.svg'
 import imag from '../../image/image.jpg'
 import imagBig from '../../image/imageBig.png'
 import Union from '../../image/Union.png'
@@ -9,7 +9,10 @@ import following from '../../image/following.png'
 import Uniondel from '../../image/Uniondel.png'
 import getApiRepo, { IRepo } from "../../Api/getApiRepo";
 import getApiUser, { IUsers }from "../../Api/getApiUser";
-import { CircularProgress } from "@mui/material";
+import { CircularProgress, PaginationItem, Stack } from "@mui/material";
+import PaginateButton from "../../PaginateButton";
+
+
 
 
 const Home: FC = () => {
@@ -20,14 +23,14 @@ const Home: FC = () => {
     console.log(user);
     console.log(repo);
     
-    
     const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setUnput(event.target.value);
     };
     const keyPressHandle = (event: React.KeyboardEvent) => {
         if (event.key === "Enter") {
-            setUserName(input)
-        };
+            setUserName(input);
+        }
+        
     };
 
     const getApiRepoAll = async () => {
@@ -39,6 +42,9 @@ const Home: FC = () => {
         const user = await getApiUser(userName);
         setUser(user);
     };
+    const hanldeOnChange = () => {
+
+    }
 
     useEffect(() => {
         if (userName) {
@@ -48,9 +54,11 @@ const Home: FC = () => {
         if (userName ===  user?.login) {
             getApiUserInfo();
             getApiRepoAll();
+            
         }
        
     },[userName]);
+ 
 
     return (<>
         <div className={style.home}>
@@ -64,7 +72,6 @@ const Home: FC = () => {
                 </form>     
             </div>
             <div className={style.main}>
-                {/* {!user && <CircularProgress />} */}
                 {userName === "" && (<>
                     <img className={style.searchBig} src={imagBig} alt="icon" />
                     <h2 className={style.title}>Start with searching a GitHub user</h2>
@@ -73,16 +80,18 @@ const Home: FC = () => {
                 {userName !== "" && userName !==  user?.login &&  (<>
                     <img className={style.Union} src={Union} alt="icon"  />
                     <h2 className={style.titleSecond}>User not found</h2>
-                </> )}   
-                {userName ===  user?.login && (<div className={style.pageUser}> 
-                            <div className={style.userContainer} key={user.id}>
+                </> )}
+              
+                {/* {userName !== "" && userName !==  user?.login && }     */}
+                {userName ===  user?.login && (<div className={style.pageUser}>             
+                            <div key={user.id} className={style.userContainer} >
                                 <img className={style.imgAvatar} src={user.avatar_url} alt="foto" />
                                 <p className={style.userName}>{user.name}</p>
                                 <a href={user.html_url} target="_blank" className={style.userLogin}>{user.login}</a>
                                 <div className={style.followersContainer}>
                                     <p className={style.followers}>
                                         <img src={followers} alt="icon" />
-                                        {user.followers > 1000 ? user.followers + 'k' : user.followers} followers
+                                        {user.followers > 1000 ? (user.followers/1000).toFixed(1) + 'k' : user.followers} followers
                                     </p>
                                     <p className={style.following}>
                                         <img src={following} alt="icon" />
@@ -96,16 +105,24 @@ const Home: FC = () => {
                                 <div className={style.containerFull}>
                                     <p className={style.numberRepo}>Repositories ({user.public_repos})</p>
                                     {repo && (<>
-                                        {repo.map(item => (
-                                            <div className={style.repo}>
-                                                <a className={style.repoTittle} href={item.html_url} target="_blank">{item.name}</a>
-                                                <p className={style.repoDescription}>{item.description}</p>
-                                            </div>
-                                        ))}
+                                        <div className={style.lol}>
+                                            {repo.map(item => (<>
+                                                    <div key={item.id} className={style.repo}>
+                                                        <a className={style.repoTittle} href={item.html_url} target="_blank">{item.name}</a>
+                                                        <p className={style.repoDescription}>{item.description}</p>
+                                                    </div>
+                                            </>))}
+                                                    <PaginateButton 
+                                                        initialPage={1}
+                                                        pageRangeDisplayed={10}
+                                                        pageCount={10}
+                                                        marginPagesDisplayed={11}
+                                                        onChange={hanldeOnChange}
+                                                    />
+                                        </div>
                                         
-                                    </>)}
+                                        </>)}
                                 </div> 
-                               
                                : 
                                 <div className={style.containerInfoEmty}>
                                     <div className={style.emtyContainer}>
@@ -114,7 +131,6 @@ const Home: FC = () => {
                                     </div>
                                 </div>
                                 }
-                            
                 </div>)}    
             </div>
         </div>

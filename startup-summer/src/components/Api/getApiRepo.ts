@@ -13,7 +13,6 @@ const getApiRepo = async (name: string): Promise<IRepo[] | null> => {
         
         return response.data; 
     } catch (e) {
-        alert(e);
         throw(e);
     } 
         

@@ -188,6 +188,12 @@
   padding-right: 56px;
   padding-top: 28px;
   margin-left: 85px;
+  @media (max-width: 332px) {
+    width: 60%;
+  }
+  @media (max-width: 315px) {
+    width: 55%;
+  }
 }
 .repo {
     background: #FFFFFF;

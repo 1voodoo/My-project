@@ -10,7 +10,7 @@ export interface IPaginationProps {
     marginPagesDisplayed?: number;
     pageCount: number;
     pageRangeDisplayed: number;
-    onChange: ({ selected}: { selected: number}) => void;
+    onChange: ({ selected }: { selected: number }) => void;
 }
 
 const PaginateButton: FC<IPaginationProps> = ({
@@ -37,8 +37,8 @@ const PaginateButton: FC<IPaginationProps> = ({
             breakClassName="Pagination__break-item"
             nextClassName="Pagination__next-item"
             previousClassName="Pagination__previous-item"
-            previousLabel={ <><image type={ArrowLeft} /></>}
-            nextLabel={ <><image type={ArrowRight}  /></>}
+            previousLabel={ <><img className="activeClassName" src={ArrowLeft} alt="icon"/></>}
+            nextLabel={ <><img className="Pagination__active" src={ArrowRight} alt="icon"/></>}
 
         />
     );

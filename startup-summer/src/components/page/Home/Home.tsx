@@ -1,27 +1,25 @@
 import React, { FC, useEffect, useState } from "react";
 import style from './Home.module.scss';
-import kitten from '../../image/Vector.svg'
-import imag from '../../image/image.jpg'
-import imagBig from '../../image/imageBig.png'
+import Kitten from '../../image/Vector.svg'
+import Imag from '../../image/image.jpg'
+import ImagBig from '../../image/imageBig.png'
 import Union from '../../image/Union.png'
-import followers from '../../image/followers.png'
-import following from '../../image/following.png'
+import Followers from '../../image/followers.png'
+import Following from '../../image/following.png'
 import Uniondel from '../../image/Uniondel.png'
 import getApiRepo, { IRepo } from "../../Api/getApiRepo";
-import getApiUser, { IUsers }from "../../Api/getApiUser";
-import { CircularProgress, PaginationItem, Stack } from "@mui/material";
+import getApiUser, { IUser }from "../../Api/getApiUser";
+// import { CircularProgress, PaginationItem, Stack } from "@mui/material";
 import PaginateButton from "../../PaginateButton";
-
-
 
 
 const Home: FC = () => {
     const [userName, setUserName] = useState<string>("");
     const [input, setUnput] = useState<string>("");
-    const [user, setUser] = useState<IUsers | null>(null);
+    const [user, setUser] = useState<IUser | null>(null);
     const [repo, setRepo] = useState<IRepo[] | null>(null);
-    console.log(user);
     console.log(repo);
+    
     
     const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setUnput(event.target.value);
@@ -47,6 +45,7 @@ const Home: FC = () => {
     }
 
     useEffect(() => {
+
         if (userName) {
             getApiUserInfo();
             getApiRepoAll();
@@ -63,22 +62,22 @@ const Home: FC = () => {
     return (<>
         <div className={style.home}>
             <div className={style.header}>
-                <img className={style.imgGit} src={kitten} alt="icon" />
+                <img className={style.imgGit} src={Kitten} alt="icon" />
                 <form action="#" className={style.search}>
                     <button type="submit" className={style.btn}>
-                        <img className={style.img} src={imag} alt="foto" />
+                        <img className={style.img} src={Imag} alt="foto" />
                     </button>
                     <input onKeyPress={keyPressHandle} onChange={handleOnChange} className={style.inputHeader} type="text" placeholder="Enter GitHub username"/>
                 </form>     
             </div>
             <div className={style.main}>
                 {userName === "" && (<>
-                    <img className={style.searchBig} src={imagBig} alt="icon" />
+                    <img className={style.searchBig} src={ImagBig} alt="icon" />
                     <h2 className={style.title}>Start with searching a GitHub user</h2>
                 </>)}
                    
                 {userName !== "" && userName !==  user?.login &&  (<>
-                    <img className={style.Union} src={Union} alt="icon"  />
+                    <img className={style.Union} src={Union} alt="icon"/>
                     <h2 className={style.titleSecond}>User not found</h2>
                 </> )}
               
@@ -90,17 +89,17 @@ const Home: FC = () => {
                                 <a href={user.html_url} target="_blank" className={style.userLogin}>{user.login}</a>
                                 <div className={style.followersContainer}>
                                     <p className={style.followers}>
-                                        <img src={followers} alt="icon" />
+                                        <img src={Followers} alt="icon" />
                                         {user.followers > 1000 ? (user.followers/1000).toFixed(1) + 'k' : user.followers} followers
                                     </p>
                                     <p className={style.following}>
-                                        <img src={following} alt="icon" />
+                                        <img src={Following} alt="icon" />
                                         {user.following} following
                                     </p>
                                 </div> 
                             </div>
                             
-                               {user.public_repos 
+                {user.public_repos 
                                ?
                                 <div className={style.containerFull}>
                                     <p className={style.numberRepo}>Repositories ({user.public_repos})</p>
@@ -113,15 +112,14 @@ const Home: FC = () => {
                                                     </div>
                                             </>))}
                                                     <PaginateButton 
-                                                        initialPage={1}
-                                                        pageRangeDisplayed={10}
-                                                        pageCount={10}
-                                                        marginPagesDisplayed={11}
+                                                        initialPage={0}
+                                                        pageRangeDisplayed={3}
+                                                        pageCount={repo.length/4}
+                                                        marginPagesDisplayed={1}
                                                         onChange={hanldeOnChange}
                                                     />
                                         </div>
-                                        
-                                        </>)}
+                                    </>)}
                                 </div> 
                                : 
                                 <div className={style.containerInfoEmty}>

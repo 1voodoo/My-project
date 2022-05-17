@@ -37,8 +37,8 @@ const PaginateButton: FC<IPaginationProps> = ({
             breakClassName="Pagination__break-item"
             nextClassName="Pagination__next-item"
             previousClassName="Pagination__previous-item"
-            previousLabel={ <><img className="activeClassName" src={ArrowLeft} alt="icon"/></>}
-            nextLabel={ <><img className="Pagination__active" src={ArrowRight} alt="icon"/></>}
+            previousLabel={ <><img className="ArrowLeft" src={ArrowLeft} alt="icon" /></>}
+            nextLabel={ <><img className="ArrowRight" src={ArrowRight} alt="icon"/></>}
 
         />
     );

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export interface IUser{
+export interface IUser {
     id: string;
     avatar_url: string;
     name: string;
@@ -9,30 +9,16 @@ export interface IUser{
     followers: number;
     following: number;
     html_url: string;
-}
-
+};
 
 const getApiUser = async (name: string): Promise<IUser> => {
     try {
         const response = await axios.get(`https://api.github.com/users/${name}`);
-        
-        return response.data; 
+        return response.data;
+
     } catch (e) {
         throw(e);
     } 
-        
 }
-export default getApiUser;
 
-// const getApiRepo = async (name: string): Promise<IUsers> => {
-//     try {
-//         const response = await axios.get(`https://api.github.com/users/${name}/repos`);
-        
-//         return response.data; 
-//     } catch (e) {
-//         alert(e);
-//         throw(e);
-//     } 
-        
-// }
-// export default getApiRepo;
+export default getApiUser;

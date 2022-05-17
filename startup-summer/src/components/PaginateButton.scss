@@ -1,7 +1,12 @@
+path{ fill:inherit; stroke:inherit; }
+
 .Pagination {
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    width: 100%;
+    margin-right: 100px;
+
 
     & > li {
         font-weight: 400;
@@ -10,6 +15,20 @@
         &:not(:last-child) {
             margin-right: 16px;
             
+        }
+        &:nth-last-child(2) {
+            margin-right: 0px;
+        }
+    }
+    & > li {
+        &:first-child {
+            margin-right: 0px;
+            margin-right: 25px;
+        }
+    }
+    & > li {
+        &:last-child { 
+            margin-left: 26px;
         }
     }
     & > li > a {
@@ -22,5 +41,22 @@
         border-radius: 3px;
         padding: 2px 6px;
     }
+    & > li > a > img{
+        color: #808080;
+        cursor: pointer;
+       
+    }
+   
     
+}
+
+.ArrowLeft {
+    margin-right: 0;
+    fill: #ff0000;
+    stroke: #009966;
+    &:hover {
+        color: #0064EB;
+        stroke: #009966;
+        fill: #ff0000;
+    }
 }

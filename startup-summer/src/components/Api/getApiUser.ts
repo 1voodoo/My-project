@@ -18,7 +18,9 @@ const getApiUser = async (name: string): Promise<IUser> => {
 
     } catch (e) {
         throw(e);
-    } 
+    } finally {
+          
+    }
 }
 
 export default getApiUser;

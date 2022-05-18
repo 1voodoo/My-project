@@ -11,7 +11,9 @@ import getApiRepo, { IRepo } from "../../Api/getApiRepo";
 import getApiUser, { IUser }from "../../Api/getApiUser";
 import PaginateButton from "../../PaginateButton";
 
+
 const Home: FC = () => {
+    const [loader, setLoader] = useState(false);
     const [userName, setUserName] = useState<string>("");
     const [input, setUnput] = useState<string>("");
     const [user, setUser] = useState<IUser | null>(null);
@@ -32,43 +34,44 @@ const Home: FC = () => {
             setUserName(input);
         }  
     };
- 
-    const getApiRepoAll = async () => {
-        const repo = await getApiRepo(userName);
-        setRepo(repo);
-    }
 
     const getApiUserInfo = async () => {
         const user = await getApiUser(userName);
         setUser(user);
+        setLoader(true);
     };
+    
+    const getApiRepoAll = async () => {
+        const repo = await getApiRepo(userName);
+        setRepo(repo);
+        setLoader(false);
+    };
+    
+
     const hanldeOnChange = (event: any) => {
-        setCurrentPage(event.selected)
-        console.log(event.selected);     
-        
+        setCurrentPage(event.selected)     
     };
 
     useEffect(() => {
-       
+
         if (userName) {
             getApiUserInfo();
-            getApiRepoAll();
+            getApiRepoAll();   
         }
+
         if (userName ===  user?.login) {
             getApiUserInfo();
-            getApiRepoAll();
-            
-        }
-       
-    },[userName]);
- 
+            getApiRepoAll(); 
+        }   
+
+    },[userName, user?.login, loader]);
 
     return (<>
         <div className={style.home}>
             <div className={style.header}>
                 <img className={style.imgGit} src={Kitten} alt="icon" />
-                <form action="#" className={style.search}>
-                    <button type="submit" className={style.btn}>
+                <div  className={style.search}>
+                    <button className={style.btn}>
                         <img className={style.img} src={Imag} alt="foto" />
                     </button>
                     <input 
@@ -77,20 +80,24 @@ const Home: FC = () => {
                         className={style.inputHeader} type="text" 
                         placeholder="Enter GitHub username"
                     />
-                </form>     
+                </div>     
             </div>
             <div className={style.main}>
+
                 {userName === "" && (<>
                     <img className={style.searchBig} src={ImagBig} alt="icon" />
                     <h2 className={style.title}>Start with searching a GitHub user</h2>
                 </>)}
-                   
-                {userName !== "" && userName !==  user?.login &&  (<>
+                
+                {userName !== "" && userName !==  user?.login && (<>
                     <img className={style.Union} src={Union} alt="icon"/>
                     <h2 className={style.titleSecond}>User not found</h2>
                 </> )}
-                {userName !== "" && userName !==  user?.login && userName ===  user?.login && (<div className={style.loader}></div>)}
-                {userName ===  user?.login && (<div className={style.pageUser}>             
+
+
+                {loader && <div className={style.main}><p className={style.loader}></p></div>}
+
+                {userName ===  user?.login && (<div className={style.pageUser}>
                             <div key={user.id} className={style.userContainer} >
                                 <img className={style.imgAvatar} src={user.avatar_url} alt="foto" />
                                 <p className={style.userName}>{user.name}</p>
@@ -154,7 +161,3 @@ const Home: FC = () => {
         </>);
     };
 export default Home;
-function initialPage(initialPage: any) {
-    throw new Error("Function not implemented.");
-}
-

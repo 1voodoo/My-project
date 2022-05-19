@@ -24,6 +24,7 @@ const Home: FC = () => {
     const ferstRepoIndex =  lastRepoIndex - showRepo;
     const pageNumber = Math.ceil(repo?.length! / showRepo);
     const currentRepo = repo?.slice(ferstRepoIndex, lastRepoIndex);
+    console.log(loader);
     
     const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setUnput(event.target.value);
@@ -38,13 +39,13 @@ const Home: FC = () => {
     const getApiUserInfo = async () => {
         const user = await getApiUser(userName);
         setUser(user);
-        setLoader(true);
+        
     };
     
     const getApiRepoAll = async () => {
         const repo = await getApiRepo(userName);
         setRepo(repo);
-        setLoader(false);
+
     };
     
 
@@ -56,108 +57,130 @@ const Home: FC = () => {
 
         if (userName) {
             getApiUserInfo();
-            getApiRepoAll();   
+            getApiRepoAll();
+            setLoader(true);
+           
         }
 
         if (userName ===  user?.login) {
             getApiUserInfo();
-            getApiRepoAll(); 
-        }   
+            getApiRepoAll();
+            setLoader(true);
+      
+        }
 
     },[userName, user?.login, loader]);
 
+    useEffect(() => {
+
+        if (userName) {
+            setLoader(false)
+           
+        }
+
+        if (userName ===  user?.login) {
+            setLoader(false)
+      
+        }
+
+    },[loader]);
+
     return (<>
-        <div className={style.home}>
-            <div className={style.header}>
-                <img className={style.imgGit} src={Kitten} alt="icon" />
-                <div  className={style.search}>
-                    <button className={style.btn}>
-                        <img className={style.img} src={Imag} alt="foto" />
-                    </button>
-                    <input 
-                        onKeyPress={keyPressHandle} 
-                        onChange={handleOnChange}
-                        className={style.inputHeader} type="text" 
-                        placeholder="Enter GitHub username"
-                    />
-                </div>     
+            <div className={style.headerContainer}>
+                <div className={style.header}>
+                    <img className={style.imgGit} src={Kitten} alt="icon" />
+                    <div  className={style.search}>
+                        <button className={style.btn}>
+                            <img className={style.img} src={Imag} alt="foto" />
+                        </button>
+                        <input 
+                            onKeyPress={keyPressHandle} 
+                            onChange={handleOnChange}
+                            className={style.inputHeader} type="text" 
+                            placeholder="Enter GitHub username"
+                        />
+                    </div>     
+                </div>
             </div>
-            <div className={style.main}>
+            <div className={style.home}>    
+                <div className={style.main}>
 
-                {userName === "" && (<>
-                    <img className={style.searchBig} src={ImagBig} alt="icon" />
-                    <h2 className={style.title}>Start with searching a GitHub user</h2>
-                </>)}
-                
-                {userName !== "" && userName !==  user?.login && (<>
-                    <img className={style.Union} src={Union} alt="icon"/>
-                    <h2 className={style.titleSecond}>User not found</h2>
-                </> )}
+                    {userName === "" && (<>
+                        <img className={style.searchBig} src={ImagBig} alt="icon" />
+                        <h2 className={style.title}>Start with searching a GitHub user</h2>
+                    </>)}
+                    
+                    {userName !== "" && userName !==  user?.login && (<>
+                        <img className={style.Union} src={Union} alt="icon"/>
+                        <h2 className={style.titleSecond}>User not found</h2>
+                    </> )}
 
 
-                {loader && <div className={style.main}><p className={style.loader}></p></div>}
+                    {loader && <div className={style.main}><p className={style.loader}></p></div>}
 
-                {userName ===  user?.login && (<div className={style.pageUser}>
-                            <div key={user.id} className={style.userContainer} >
-                                <img className={style.imgAvatar} src={user.avatar_url} alt="foto" />
-                                <p className={style.userName}>{user.name}</p>
-                                <a href={user.html_url} target="_blank" className={style.userLogin}>{user.login}</a>
-                                <div className={style.followersContainer}>
-                                    <p className={style.followers}>
-                                        <img src={Followers} alt="icon" />
-                                        {user.followers > 1000 
-                                        ?
-                                         (user.followers/1000).toFixed(1) + 'k' 
-                                        : user.followers
-                                        } followers
-                                    </p>
-                                    <p className={style.following}>
-                                        <img src={Following} alt="icon" />
-                                        {user.following} following
-                                    </p>
-                                </div> 
-                            </div>
-                            
-                {user.public_repos 
-                               ?
-                                <div className={style.containerFull}>
-                                    <p className={style.numberRepo}>Repositories ({user.public_repos})</p>
-                                    {repo && (<>
-                                        <div>
-                                            {currentRepo!.map(item => (<>
-                                                    <div key={item.id} className={style.repo}>
-                                                        <a className={style.repoTittle} href={item.html_url} target="_blank">{item.name}</a>
-                                                        <p className={style.repoDescription}>{item.description}</p>
-                                                    </div>
-                                            </>))}
-                                            <div className={style.containerRepo}>
-                                                <div className={style.containerRepoInfo}>
-                                                    <p className={style.repoNumber}>{ferstRepoIndex + 1}-{lastRepoIndex} of {user.public_repos} items</p>
-                                                </div>
-                                                <div> 
-                                                    <PaginateButton 
-                                                        initialPage={0}
-                                                        pageRangeDisplayed={3}
-                                                        pageCount={pageNumber}
-                                                        marginPagesDisplayed={1}
-                                                        onChange={(set) => hanldeOnChange(set)}
-                                                    />
-                                                </div> 
-                                            </div>  
+                    {userName ===  user?.login && (<div className={style.pageUser}>
+                                <div key={user.id} className={style.userContainer} >
+                                    <img className={style.imgAvatar} src={user.avatar_url} alt="foto" />
+                                    <div className={style.smallUserContainer}>
+                                        <p className={style.userName}>{user.name}</p>
+                                        <a href={user.html_url} target="_blank" className={style.userLogin}>{user.login}</a>
+                                        <div className={style.followersContainer}>
+                                            <p className={style.followers}>
+                                                <img src={Followers} alt="icon" />
+                                                {user.followers > 1000 
+                                                ?
+                                                (user.followers/1000).toFixed(1) + 'k' 
+                                                : user.followers
+                                                } followers
+                                            </p>
+                                            <p className={style.following}>
+                                                <img src={Following} alt="icon" />
+                                                {user.following} following
+                                            </p>
                                         </div>
-                                    </>)}
-                                </div> 
-                               : 
-                                <div className={style.containerInfoEmty}>
-                                    <div className={style.emtyContainer}>
-                                        <img className={style.emptyIcon} src={Uniondel} alt="icon" />
-                                        <h2 className={style.emptyText}>Repository list is empty</h2>
-                                    </div>
+                                    </div> 
                                 </div>
-                                }
-                </div>)}    
+                                
+                    {user.public_repos 
+                                ?
+                                    <div className={style.containerFull}>
+                                        <p className={style.numberRepo}>Repositories ({user.public_repos})</p>
+                                        {repo && (<>
+                                            <div className={style.containerRepoFull}>
+                                                {currentRepo!.map(item => (<>
+                                                        <div key={item.id} className={style.repo}>
+                                                            <a className={style.repoTittle} href={item.html_url} target="_blank">{item.name}</a>
+                                                            <p className={style.repoDescription}>{item.description}</p>
+                                                        </div>
+                                                </>))}
+                                                <div className={style.containerRepo}>
+                                                    <div className={style.containerRepoInfo}>
+                                                        <p className={style.repoNumber}>{ferstRepoIndex + 1}-{lastRepoIndex} of {user.public_repos} items</p>
+                                                    </div>
+                                                    <div> 
+                                                        <PaginateButton 
+                                                            initialPage={0}
+                                                            pageRangeDisplayed={3}
+                                                            pageCount={pageNumber}
+                                                            marginPagesDisplayed={1}
+                                                            onChange={(set) => hanldeOnChange(set)}
+                                                        />
+                                                    </div> 
+                                                </div>  
+                                            </div>
+                                        </>)}
+                                    </div> 
+                                : 
+                                    <div className={style.containerInfoEmty}>
+                                        <div className={style.emtyContainer}>
+                                            <img className={style.emptyIcon} src={Uniondel} alt="icon" />
+                                            <h2 className={style.emptyText}>Repository list is empty</h2>
+                                        </div>
+                                    </div>
+                                    }
+                    </div>)}    
+                </div>
             </div>
-        </div>
         </>);
     };
 export default Home;

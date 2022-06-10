@@ -1,0 +1,64 @@
+.btnDelet {
+    margin-right: 10px;
+    &:hover {
+        background-color: red;
+        color: aliceblue;
+    }
+}
+.input {
+    margin-right: 10px;
+    background-color: aqua;
+    border-radius: 10px;
+    padding-left: 10px;
+    border-width: 0px;
+    &::placeholder {
+        color: black;
+    }
+    &:hover {
+        &::placeholder {
+            color: rgb(212, 11, 11);
+        }  
+    }
+}
+.pageTitle {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.content {
+    width: 290px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: azure;
+    &:not(:last-child){
+        margin-bottom: 20px;
+    }
+}
+.btnContainer {
+    display: flex;
+    align-items: center;
+}
+.myNotes {
+    background: rgb(119, 103, 103);
+    border-radius: 20px;
+    padding: 20px;
+}
+.error {
+    color: red;
+}

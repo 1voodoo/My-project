@@ -62,3 +62,11 @@
 .error {
     color: red;
 }
+.discripton {
+    display: flex;
+    flex-direction: column;
+    span {
+        color: rgb(8, 239, 28);
+        font-size: small;
+    }
+}

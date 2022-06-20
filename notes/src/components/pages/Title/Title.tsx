@@ -23,8 +23,7 @@ const  Title:FC = () => {
   const [error, setError] = useState(false);
   const [tagValue, setTagValue] = useState('');
   const [arr, setArr] = useState<any[]>([]);
-  const [arrNew, setArrNew] = useState<any[]>([]);
-
+  
   const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
     if(event.target.value.length < 20) {
@@ -35,27 +34,20 @@ const  Title:FC = () => {
   };
   const handleOnChangeSecond = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValueTwo(event.target.value);
+    let newMap1 = arr.map(item => item);
     
-    console.log(arrNew);
-    for(const item of arr) {
-      if(item.tag === event.target.value) {
-        setArrNew([...arrNew, item])
+      for (let i = 0; i < arr.length; i++) {
+        if (event.target.value === arr[i].tag) {
+          let newMap = arr.filter(item => item.tag === event.target.value);
+          setArr(newMap)
+        }
+        else if(event.target.value !== arr[i].tag) {
+          setArr(newMap1)
+          console.log(arr);
+        }
       }
-    }
-  
-    // if(arrNew = arr.map(item => {(item.tag === event.target.value) 
-    //   arrNew.push(item)
-    // })){
-    //   console.log(arrNew);
+     
       
-      // console.log(arrNew);
-      // console.log(true);
-      
-    // }else {
-    //   // console.log(false);
-    // }
-    
-  
   } 
   
   const handleOnAdd = () => {
@@ -117,7 +109,7 @@ const  Title:FC = () => {
         <input className={style.input} onChange={handleOnChangeSecond} value={inputValueTwo} type="text" placeholder='search'/>
             {arr && (
               <div className={style.content}>
-                {arrNew.map((value, index)=> (
+                {arr.map((value, index)=> (
                   <div className={style.container} key={index}>
                     <p className={style.discripton}>{value.discripton}<span>{value.tag}</span></p>
                     <div className={style.btnContainer}>

@@ -4,19 +4,7 @@ import style from './Title.module.scss';
 
 
 const  Title:FC = () => {
-
-  // interface IRepo {
-  //   description: string;
-  //   tag: string;
-  // };
-  // interface IUser {
-  //   all: IRepo[];
-  // }
-  // const allNotes = [
-  //   {
-  //   }
-  // ]
-
+  
   const [inputValue, setInputValue] = useState<string>('');
   const [inputValueTwo, setInputValueTwo] = useState<string>('');
   const [dis, setDis] = useState(false);

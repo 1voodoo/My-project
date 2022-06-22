@@ -1,5 +1,5 @@
 import { Button } from '@mui/material';
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useState } from 'react';
 import style from './Title.module.scss';
 
 
@@ -11,6 +11,8 @@ const  Title:FC = () => {
   const [error, setError] = useState(false);
   const [tagValue, setTagValue] = useState('');
   const [arr, setArr] = useState<any[]>([]);
+  const [arr2, setArr2] = useState<any[]>([]);
+  const [emty, setEmty] = useState<boolean>(true);
   
   const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
@@ -22,20 +24,14 @@ const  Title:FC = () => {
   };
   const handleOnChangeSecond = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValueTwo(event.target.value);
-    let newMap1 = arr.map(item => item);
-    
+    setEmty(true)
       for (let i = 0; i < arr.length; i++) {
         if (event.target.value === arr[i].tag) {
           let newMap = arr.filter(item => item.tag === event.target.value);
-          setArr(newMap)
-        }
-        else if(event.target.value !== arr[i].tag) {
-          setArr(newMap1)
-          console.log(arr);
+          setArr2(newMap)
+          setEmty(false)
         }
       }
-     
-      
   } 
   
   const handleOnAdd = () => {
@@ -77,15 +73,6 @@ const  Title:FC = () => {
     
   };  
 
-  useEffect(() => {
-    localStorage.setItem('arr', JSON.stringify(arr));
-  },[arr]);
-
-  useEffect(() => {
-    const save = JSON.parse(localStorage.getItem('arr') || '[]');
-    setArr(save)
-  },[]);
-
   return (
     <div className={style.pageTitle}>
       <div className={style.myNotes}>
@@ -94,10 +81,23 @@ const  Title:FC = () => {
           <input className={style.input} onChange={handleOnChange} value={inputValue} type="text" placeholder='text note'/>
           <Button disabled={dis} onClick={handleOnAdd} size="small" variant="contained">Add note</Button>
         </div>
-        <input className={style.input} onChange={handleOnChangeSecond} value={inputValueTwo} type="text" placeholder='search'/>
+        <input disabled={dis} className={style.input} onChange={handleOnChangeSecond} value={inputValueTwo} type="text" placeholder='search'/>
             {arr && (
-              <div className={style.content}>
+              <div className={emty ? style.content : style.contentNon}>
                 {arr.map((value, index)=> (
+                  <div className={style.container} key={index}>
+                    <p className={style.discripton}>{value.discripton}<span>{value.tag}</span></p>
+                    <div className={style.btnContainer}>
+                      <button className={style.btnDelet} onClick={() => handleOnDelet(value)}>x</button>
+                      <button onClick={() => handleOnChanges(value, index)}>{dis ? 'add changes': 'change' }</button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+            {arr2 && (
+              <div className={emty ? style.contentNon  : style.content}>
+                {arr2.map((value, index)=> (
                   <div className={style.container} key={index}>
                     <p className={style.discripton}>{value.discripton}<span>{value.tag}</span></p>
                     <div className={style.btnContainer}>

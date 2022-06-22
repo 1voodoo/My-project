@@ -11,6 +11,7 @@
     border-radius: 10px;
     padding-left: 10px;
     border-width: 0px;
+    margin-bottom: 10px;
     &::placeholder {
         color: black;
     }
@@ -69,4 +70,7 @@
         color: rgb(8, 239, 28);
         font-size: small;
     }
+}
+.contentNon{
+    display: none;
 }

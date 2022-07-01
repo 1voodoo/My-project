@@ -1,0 +1,34 @@
+.backPage {
+    background: #FFFFFF;
+}
+.wrapper {
+    max-width: 1170px;
+    margin: 0 auto;
+}
+.logo {
+    width: 170px;
+    height: 40px;
+}
+
+.ContainerSearch {
+    width: 270px;
+    position: relative;
+}
+.inputSearch {
+    width: 100%;
+    padding: 14px 0 14px 39px;
+    border: none;
+    background: #F9F9FB;
+    border-radius: 5px;
+    &::placeholder {
+        font-size: 14px;
+        line-height: 19px;
+        color: #C6C6C6;
+    }
+}
+.iconSearch {
+    position: absolute;
+    z-index: 1;
+    top: 16px;
+    left: 12px;
+}

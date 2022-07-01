@@ -1,0 +1,78 @@
+@import "@fontsource/manrope";
+* {
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+  }
+body {
+    background: #E5E5E5;
+    margin: 0 auto;
+    padding: 0;
+    max-width: 1400px;
+  }
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  
+  /* Убираем внутренние отступы */
+  ul[class],
+  ol[class] {
+    padding: 0;
+  }
+  
+  /* Убираем внешние отступы */
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  ul[class],
+  ol[class],
+  li,
+  figure,
+  figcaption,
+  blockquote,
+  dl,
+  dd {
+    margin: 0;
+  }
+  
+  /* Выставляем основные настройки по-умолчанию для body */
+  
+  
+  /* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+  ul[class],
+  ol[class] {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+  a:not([class]) {
+    text-decoration-skip-ink: auto;
+    text-decoration: none;
+  }
+  
+  /* Упрощаем работу с изображениями */
+  img {
+    fill:inherit; 
+    stroke:inherit;
+    display: block;
+  }
+  
+  /* Указываем понятную периодичность в потоке данных у article*/
+  article > * + * {
+    margin-top: 1em;
+  }
+  
+  /* Наследуем шрифты для инпутов и кнопок */
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }

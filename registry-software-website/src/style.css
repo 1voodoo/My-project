@@ -1,10 +1,14 @@
 @import "@fontsource/manrope";
+img {
+ display: block;
+}
 * {
     font-family: "Manrope";
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 22px;
+    color: #4D4D4F;
   }
 body {
     background: #E5E5E5;
@@ -58,12 +62,7 @@ body {
   }
   
   /* Упрощаем работу с изображениями */
-  img {
-    fill:inherit; 
-    stroke:inherit;
-    display: block;
-  }
-  
+
   /* Указываем понятную периодичность в потоке данных у article*/
   article > * + * {
     margin-top: 1em;

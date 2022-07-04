@@ -1,0 +1,24 @@
+.page {
+    background: #E5E5E5;
+    padding: 80px 0;
+}
+.wrapper {
+    max-width: 1170px;
+    margin: 0 auto;
+}
+h2 {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 49px;
+    color: #231F20;
+    margin-bottom: 10px;
+}
+p {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    color: #4D4D4F;
+    span {
+        color: #009CB4;
+    }
+}

@@ -4,6 +4,15 @@
 .wrapper {
     max-width: 1170px;
     margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+
+}
+.containerOne {
+    display: flex;
+    align-items: center;
 }
 .logo {
     width: 170px;
@@ -12,6 +21,7 @@
 
 .ContainerSearch {
     width: 270px;
+    margin-left: 30px;
     position: relative;
 }
 .inputSearch {
@@ -20,6 +30,7 @@
     border: none;
     background: #F9F9FB;
     border-radius: 5px;
+    outline: none;
     &::placeholder {
         font-size: 14px;
         line-height: 19px;
@@ -31,4 +42,74 @@
     z-index: 1;
     top: 16px;
     left: 12px;
+}
+.notebookIcon {
+    width: 48px;
+    height: 48px;
+    background: #F9F9FB;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+
+    & img  {
+        width: 24px;
+        height: 25px;
+    }
+    
+}
+.bellIcon {
+    width: 48px;
+    height: 48px;
+    background: #F9F9FB;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    & img  {
+        width: 21px;
+        height: 26px;
+    }
+    & i {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: #009CB4;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        color: #FFFFFF;
+        font-size: 12px;
+        line-height: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+}
+.userContainer {
+    display: flex;
+    align-items: center;
+    &::before {
+        content: '';
+        border-left: 3px solid #F4F3F5;
+        height: 48px;
+        margin: 0 20px;
+    }
+    & .userIcon {
+        width: 48px;
+        height: 48px;
+        margin-right: 10px;
+    }
+    & p {
+        color: #4D4D4F;
+        margin-right: 19px;
+    }
+    & img {
+       width: 12px;
+       height: 8px;
+    }
 }

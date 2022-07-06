@@ -1,8 +1,13 @@
 import { FC } from "react"
+import { useNavigate } from "react-router-dom";
 
 const Error:FC = () => {
+    const navigate = useNavigate();
+    const handleOnclick = () => {
+        navigate('/')
+    }
     return (
-        <div>Error</div>
+        <div onClick={handleOnclick}>Error</div>
     );
 };
 

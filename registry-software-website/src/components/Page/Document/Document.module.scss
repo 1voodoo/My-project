@@ -6,7 +6,8 @@
     max-width: 1170px;
     margin: 0 auto;
 }
-h2 {
+
+.Tittle {
     font-weight: 700;
     font-size: 36px;
     line-height: 49px;
@@ -21,4 +22,203 @@ p {
     span {
         color: #009CB4;
     }
+}
+.table {
+    margin-top: 61px;
+    position: relative;
+}
+.line {
+    border: 1px solid #EDEDF4;
+    margin: 21px 0;
+}
+.line2 {
+    border: 1px solid #EDEDF4;
+    position: absolute;
+    width: 100%;
+    top: 69px;
+}
+.line3 {
+    border: 1px solid #EDEDF4;
+    position: absolute;
+    width: 100%;
+    top: 212px;
+}
+.line4 {
+    border: 1px solid #EDEDF4;
+    position: absolute;
+    width: 100%;
+    top: 321px;
+}
+.line5 {
+    border: 1px solid #EDEDF4;
+    position: absolute;
+    width: 100%;
+    top: 409px;
+}
+.line6 {
+    border: 1px solid #EDEDF4;
+    position: absolute;
+    width: 100%;
+    top: 535px;
+}
+
+.tableContainer {
+    display: flex;
+    justify-content: space-between;
+}
+.lineOne {
+    display: flex;
+    flex-direction: column;
+    width: 157px;
+    p:nth-child(1) {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 22px;
+        color: #009CB4;
+        margin-bottom: 85px;
+    }
+    p:nth-child(2) {
+        margin-bottom: 106px;
+    }
+    p:nth-child(3) {
+        margin-bottom: 73px;
+    }
+    p:nth-child(4) {
+        margin-bottom: 84px;
+    }
+    p:nth-child(5) {
+        margin-bottom: 95px;
+    }
+}
+.lineTwo {
+    width: 370px;
+    display: flex;
+    flex-direction: column;
+    p:not(:last-child) {
+        margin-bottom: 40px;
+    }
+}
+.lineThree {
+    display: flex;
+    flex-direction: column;
+    p:nth-child(1) {
+        margin-bottom: 85px;
+    }
+    p:nth-child(2) {
+        margin-bottom: 106px;
+    }
+    p:nth-child(3) {
+        margin-bottom: 73px;
+    }
+    p:nth-child(4) {
+        margin-bottom: 84px;
+    }
+    p:nth-child(5) {
+        margin-bottom: 95px;
+    }
+}
+.lineFour {
+    display: flex;
+    flex-direction: column;
+    p:nth-child(1) {
+        margin-bottom: 85px;
+    }
+    p:nth-child(2) {
+        margin-bottom: 106px;
+    }
+    p:nth-child(3) {
+        margin-bottom: 73px;
+    }
+    p:nth-child(4) {
+        margin-bottom: 84px;
+    }
+    p:nth-child(5) {
+        margin-bottom: 95px;
+    }
+}
+.lineFive {
+    display: flex;
+    flex-direction: column;
+    p:nth-child(1) {
+        margin-bottom: 74px;
+        display: flex;
+        align-items: center;
+        img {
+            margin-right: 13px;
+            width: 18px;
+            height: 18px;
+        }
+    }
+    p:nth-child(2) {
+        margin-bottom: 84px;
+        display: flex;
+        align-items: center;
+        color: #009CB4;
+        width: 122px;
+        img {
+            margin-right: 14px;
+            width: 16px;
+            height: 20px;
+        }
+    }
+    p:nth-child(3) {
+        margin-bottom: 51px;
+        display: flex;
+        align-items: center;
+        color: #009CB4;
+        width: 122px;
+        img {
+            margin-right: 14px;
+            width: 16px;
+            height: 20px;
+        }
+    }
+    p:nth-child(4) {
+        margin-bottom: 62px;
+        display: flex;
+        align-items: center;
+        color: #009CB4;
+        width: 122px;
+        img {
+            margin-right: 14px;
+            width: 16px;
+            height: 20px;
+        }
+    }
+    p:nth-child(5) {
+        margin-bottom: 73px;
+        display: flex;
+        align-items: center;
+        color: #009CB4;
+        width: 122px;
+        img {
+            margin-right: 14px;
+            width: 16px;
+            height: 20px;
+        }
+    }
+    p:nth-child(6) {
+        display: flex;
+        align-items: center;
+        color: #009CB4;
+        width: 122px;
+        img {
+            margin-right: 14px;
+            width: 16px;
+            height: 20px;
+        }
+    }
+}
+.textHeader {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    color: #009CB4;
+
+}
+p {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    color: #4D4D4F;
 }

@@ -6,9 +6,16 @@ import notebook from '../../icons/блокнот.png';
 import bell from '../../icons/bell.png';
 import user from '../../icons/Юзер.png';
 import VectorDown from '../../icons/VectorDown.png';
+import { useNavigate } from "react-router-dom";
 
 
 const Header:FC = () => {
+    const navigate = useNavigate();
+    const handleOnClick = () => {
+        navigate('/user')
+        console.log('user');
+        
+    }
     return (
         <div className={style.backPage}>
             <div className={style.wrapper}>
@@ -21,13 +28,13 @@ const Header:FC = () => {
                 </div>
                 <div className={style.containerOne}>    
                     <div className={style.notebookIcon}>
-                        <img src={notebook} alt="logo" />
+                        <img  src={notebook} alt="logo" />
                     </div>
                     <div className={style.bellIcon}>
                         <i>4</i>
                         <img src={bell} alt="logo" />
                     </div>
-                    <div className={style.userContainer}>
+                    <div onClick={handleOnClick} className={style.userContainer}>
                         <img className={style.userIcon} src={user} alt="foto" />
                         <p>Захар Палазник</p>
                         <img src={VectorDown} alt="foto" />

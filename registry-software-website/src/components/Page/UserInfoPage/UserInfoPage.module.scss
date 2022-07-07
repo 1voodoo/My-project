@@ -1,0 +1,231 @@
+.page {
+    background: #FFFFFF;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+.wrapper {
+    max-width: 1170px;
+    margin: 0 auto;
+}
+.container {
+    display: flex;
+    margin-top: 40px;
+}
+.containerOne {
+    margin-right: 130px;
+}
+.containerTwo {
+    width: 100%;
+}
+.containerInfoPush {
+    display: flex;
+    align-items: center;
+    padding: 23.5px 0;
+    border: 1px solid #009CB4;
+    width: 270px;
+    border-radius: 5px;
+    .firsTittle {
+        color: #009CB4;
+        margin-left: 16px;
+    }
+    .firsTittleIcon {
+        width: 18px;
+        height: 25px;
+        margin-left: 26px;
+    }
+}
+.containerInfo {
+    display: flex;
+    align-items: center;
+    padding: 23.5px 0;
+    border: 1px solid #EDEDF4;
+    width: 270px;
+    border-radius: 5px;
+    p {
+        font-size: 18px;
+        line-height: 25px;
+        color: #676A71;
+    }
+    .secondTittleIcon {
+        width: 21px;
+        height: 26px;
+        margin-left: 25px;
+        margin-right: 15px;
+    }
+    .threeTittleIcon {
+        width: 24px;
+        height: 24px;
+        margin-left: 24px;
+        margin-right: 14px;
+    }
+    .fourTittleIcon {
+        width: 24px;
+        height: 24px;
+        margin-left: 24px;
+        margin-right: 14px;
+    }
+    .fiveTittleIcon {
+        width: 21px;
+        height: 26px;
+        margin-left: 25px;
+        margin-right: 15px;
+    }
+    .sixTittleIcon {
+        width: 21px;
+        height: 26px;
+        margin-left: 25px;
+        margin-right: 15px;
+    }
+    .sevenTittleIcon {
+        width: 24px;
+        height: 24px;
+        margin-left: 24px;
+        margin-right: 14px;
+        cursor: pointer;
+    }
+    .sevenTittle {
+        color: #E0371F;
+        cursor: pointer;
+    }
+    
+}
+.containerUser {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    p {
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 33px;
+        color: #231F20;
+        margin-left: 20px;
+    }
+    img {
+        width: 64px;
+        height: 64px;
+    }
+}
+.line {
+    border-bottom: 1px solid #EDEDF4;
+    margin-top: 36px;
+    margin-bottom: 36px;
+}
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    width: 370px;
+    position: relative;
+    img {
+        width: 10px;
+        height: 6;
+        position: absolute;
+        right: 0;
+        bottom: 48px;
+        padding-right: 25px;
+    }
+    span {
+        font-size: 14px;
+        line-height: 19px;
+        color: #A8AAAE;
+        margin-bottom: 5px;
+    }
+}
+.containeAllInputs {
+    display: flex;
+}
+.containerInputsOne {
+    margin-right: 30px;
+}
+input {
+    background: #F6F6F9;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    padding: 18.5px 0 18.5px 18px;
+    margin-bottom: 20px;
+
+    &::placeholder {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 19px;
+        color: #4D4D4F;
+    }
+}
+.tittleInputHeader {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+    color: #4D4D4F;
+    margin-bottom: 20px;
+}
+.lineTwo {
+    border-bottom: 1px solid #EDEDF4;
+    margin-top: 16px;
+    margin-bottom: 36px;
+}
+.containerInputsFinall {
+    display: flex;
+}
+.containerInputsFinall {
+    display: flex;
+    flex-direction: column;
+}
+.containeInputsFinall {
+    display: flex;
+}
+.inputContainerOne {
+    display: flex;
+    flex-direction: column;
+    width: 370px;
+    position: relative;
+    margin-right: 30px;
+    img {
+        width: 20px;
+        height: 16px;
+        position: absolute;
+        right: 0;
+        bottom: 44px;
+        padding-right: 25px;
+    }
+    span {
+        font-size: 14px;
+        line-height: 19px;
+        color: #A8AAAE;
+        margin-bottom: 5px;
+    }
+}
+.inputContainerTwo {
+    display: flex;
+    flex-direction: column;
+    width: 370px;
+    position: relative;
+    margin-right: 30px;
+    img {
+        width: 20px;
+        height: 16px;
+        position: absolute;
+        right: 0;
+        bottom: 44px;
+        padding-right: 25px;
+    }
+    span {
+        font-size: 14px;
+        line-height: 19px;
+        color: #A8AAAE;
+        margin-bottom: 5px;
+    }
+}
+.btn {
+    width: 270px;
+    background: #009CB4;
+    border-radius: 5px;
+    border: none;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+    color: #FFFFFF;
+    padding: 17px 0;
+    &:hover {
+        opacity: 0.5;
+    }
+}

@@ -1,17 +1,13 @@
 import { FC } from "react"
-import { useNavigate } from "react-router-dom";
 import Ask from "../Ask/Ask";
 import Document from "../Document/Document";
+import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import MainContent from "../MainContent/MainContent";
 import News from "../News/News";
 
-const Home:FC = () => {
-    const navigate = useNavigate();
-    const handleOnclick = () => {
-        navigate('*')
-    }
+const Home: FC = () => {
     return (
         <>
             <Header/>
@@ -20,7 +16,8 @@ const Home:FC = () => {
             <News/>
             <Document/>
             <Ask/>
-        <div onClick={handleOnclick}>Home</div>
+            <Footer/>
+            
         </>
     );
 };

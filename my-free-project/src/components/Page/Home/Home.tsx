@@ -1,8 +1,12 @@
 import { FC } from "react";
+import './Home.scss';
 
 const Home: FC = () => {
-  return (
-    <div>Home</div>
+  return (<>
+  <header></header>
+    <div className="home">Home</div>
+    <h1 className="tittle">Hello World</h1>
+    </>
   );
 };
 

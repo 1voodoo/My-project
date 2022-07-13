@@ -1,11 +1,11 @@
 import { FC } from "react";
+import Header from "../Header/Header";
 import './Home.scss';
 
 const Home: FC = () => {
-  return (<>
-  <header></header>
-    <div className="home">Home</div>
-    <h1 className="tittle">Hello World</h1>
+  return (
+    <>
+      <Header/>
     </>
   );
 };

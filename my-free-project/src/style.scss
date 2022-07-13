@@ -15,7 +15,15 @@ body {
     margin: 0 auto;
     padding: 0;
     max-width: 1400px;
+    width: 100%;
   }
+  li {
+    list-style-type: none; /* Убираем маркеры */
+   }
+   ul {
+    margin: 0; /* Отступ слева в браузере IE и Opera */
+    padding: 0; /* Отступ слева в браузере Firefox, Safari, Chrome */
+   }
   *::before,
   *::after {
     box-sizing: border-box;

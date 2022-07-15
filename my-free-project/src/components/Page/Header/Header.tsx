@@ -43,7 +43,7 @@ const Header: FC = () => {
           <li className="li-foto-card">
             <img src={card} alt="icon" />
             Onliner Клевер</li>
-          <li>курс валюта</li>
+          <li className="currency">курс валюта</li>
           <li>погода</li>
         </ul>
       </div>

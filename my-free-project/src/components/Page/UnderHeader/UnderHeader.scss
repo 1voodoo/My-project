@@ -1,0 +1,26 @@
+.page {
+    background-color: #f4f4f4;
+    width: 100%;
+}
+.wrapper {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+.logo {
+    width: 185px;
+    height: 70px;
+}
+.user {
+    width: 50px;
+    height: 50px;
+}
+.icon {
+    width: 30px;
+    height: 30px;
+}
+.user-info {
+    display: flex;
+    align-items: center;
+}

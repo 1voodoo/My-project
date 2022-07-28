@@ -1,16 +1,21 @@
 .page {
     background-color: #f4f4f4;
     width: 100%;
+    padding: 10px 0;
 }
 .wrapper {
     max-width: 1140px;
     margin: 0 auto;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 .logo {
     width: 185px;
     height: 70px;
+    &:hover {
+        cursor: pointer;
+    }
 }
 .user {
     width: 50px;
@@ -19,8 +24,50 @@
 .icon {
     width: 30px;
     height: 30px;
+    &:hover {
+        cursor: pointer;
+        color: black;
+        fill: red;
+    }
 }
 .user-info {
     display: flex;
     align-items: center;
+    & .icon:not(:last-child) {
+        margin-right: 10px;
+    }
+    &:hover {
+        cursor: pointer;
+    }
+}
+.form-input {
+    position: relative;
+    width: 500px;
+    & input {
+        width: 100%;
+        padding: 0 10px 0 44px;
+        height: 40px;
+        outline: none;
+        border: solid 1px #ccc;
+        border-radius: 3px;
+    }
+    & .search {
+        position: absolute;
+        top: 4px;
+        padding: 7px;
+        margin-left: 10px;
+        width: 20px;
+        height: 20px;
+    }
+}
+.container-user {
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    & img:last-child {
+        width: 15px;
+        height: 15px;
+        transform: rotate(-90deg);
+        margin-left: 10px;
+    }
 }

@@ -11,7 +11,7 @@ import bird from '../../../iconHeader/icons8-next.png';
 
 const UnderHeader: FC = () => {
   return (
-    <div className="page">
+    <div className="page-UnderHeader">
       <div className="wrapper">
         <img className="logo" src={logo} alt="logo" />
         <div className="form-input">

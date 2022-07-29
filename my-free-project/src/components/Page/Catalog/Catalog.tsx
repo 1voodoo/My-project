@@ -1,5 +1,6 @@
 import { FC } from "react"
 import Header from "../Header/Header";
+import PageCatalog from "../PageCatalog/PageCatalog";
 import UnderHeader from "../UnderHeader/UnderHeader";
 
 const Catalog: FC = () => {
@@ -7,6 +8,7 @@ const Catalog: FC = () => {
     <>
         <Header/>
         <UnderHeader/>
+        <PageCatalog/>
     </>
 
     );

@@ -17,3 +17,107 @@
         line-height: 1;
     }
 }
+.good-priсe {
+    color: white;
+    background-color: red;
+    text-decoration: none;
+    padding: 1px 10px;
+    border-radius: 14px;
+    margin-left: 21px;
+    font-size: 11px;
+    margin-top: 8px;
+}
+.container-products {
+    display: flex;
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+
+}
+.container-product {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    width: 20%;
+    height: 20%;
+    border-right: 1px solid #e6e6e6;
+    padding: 5px;
+    &:hover {
+        background-color: #e6e6e6;
+    }
+    &:hover:after{
+        position: absolute;
+        content: '';
+        bottom: -1px;
+        left: 0;
+        border: 1px solid gray;
+        width: 100%;
+    }
+    & img {
+        width: 36px;
+        height: 36px;
+    }
+    & p {
+        margin-top: 10px;
+        font-size: 12px;
+        line-height: 1;
+    }
+    
+}
+.container-item-products {
+    display: flex;
+    border-bottom: 2px solid #e6e6e6;  
+    & li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 10%;
+        padding: 20px;
+        position: relative;
+        &:hover {
+            background-color: #e6e6e6;
+            text-decoration: none;
+        }
+        &:hover:after{
+            position: absolute;
+            content: '';
+            bottom: -1px;
+            left: 0;
+            border: 1px solid gray;
+            width: 100%;
+        }
+        & img {
+            width: 25px;
+            height: 25px;
+        }
+        & span {
+            font-size: 10px;
+            line-height: 12px;
+            text-align: center;
+            margin-left: 2px;
+        
+        }
+    }
+}
+.container-links {
+    display: flex;
+    overflow: hidden;
+    padding: 15px;
+
+    & .link {
+        font-weight: 400;
+        color: #004d99;
+        text-decoration: none;
+        white-space: nowrap;
+        font-size: 12px;
+        line-height: 1;
+        &:not(:last-child) {
+            margin-right: 15px;
+        }
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

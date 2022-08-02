@@ -110,4 +110,37 @@ li {
 }
 .currency {
     margin: 0 20px;
+    color: #44ae3b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.weather {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.spinner {
+    height: 10px;
+    width: 10px;
+    border-left: 3px solid rgb(36, 0, 239);
+    border-bottom: 3px solid rgb(36, 0, 239);
+    border-right: 3px solid rgb(36, 0, 239);
+    border-top: 3px solid transparent;
+    border-radius: 50%;
+    animation: spinner 1s linear infinite;
+}
+ 
+@keyframes spinner {
+    from {
+        transform: rotate(0deg);
+    }
+ 
+    to {
+        transform: rotate(360deg);
+    }
+}
+.cloudImg {
+    width: 30px;
+    height: 30px;
 }

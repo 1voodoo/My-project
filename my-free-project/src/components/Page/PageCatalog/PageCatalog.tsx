@@ -122,6 +122,56 @@ const PageCatalog: FC = () => {
             <a href="" className="link">Автомобильные аккумуляторы</a>
             <a href="" className="link">Аксессуары для салона</a>
           </ul>
+          <div className="container-advertisings">
+            <div className="container-advertising">
+              <div className="container-advertising-discription">
+                <h1>До -50% на часы</h1>
+                <p>Более 500 моделей по сниженным ценам</p>
+              </div>
+            </div>
+            <div className="container-advertising laptop">
+              <div className="container-advertising-discription">
+                <h1>Ноутбуки от 700р.</h1>
+                <p>Большой выбор для работы и учебы</p>
+              </div>
+            </div>
+            <div className="container-advertising coffe">
+              <div className="container-advertising-discription">
+                <h1>Капсулы от 6 р.</h1>
+                <p>Для кофеварок Nespresso со скидкой до 46%</p>
+              </div>
+            </div>
+            <div className="container-advertising chair">
+              <div className="container-advertising-discription">
+                <h1>Кресла от 140 р.</h1>
+                <p>500 моделей для работы и учебы</p>
+              </div>
+            </div>
+            <div className="container-advertising washingM">
+              <div className="container-advertising-discription">
+                <h1>До –43% на стиральные машины</h1>
+                <p>Bosch, Samsung и Candy</p>
+              </div>
+            </div>
+            <div className="container-advertising bags">
+              <div className="container-advertising-discription">
+                <h1>Чемоданы от 175 р.</h1>
+                <p>Более 1300 моделей от 35 магазинов</p>
+              </div>
+            </div>
+            <div className="container-advertising card">
+              <div className="container-advertising-discription">
+                <h1>Видеокарты</h1>
+                <p>Удобный выбор 500 моделей, сравнение цен от 50 магазинов</p>
+              </div>
+            </div>
+            <div className="container-advertising table">
+              <div className="container-advertising-discription">
+                <h1>Парты, столы, стулья</h1>
+                <p>1000 моделей с удобный подбором</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
   );

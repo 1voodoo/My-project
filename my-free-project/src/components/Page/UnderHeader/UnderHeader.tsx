@@ -8,12 +8,19 @@ import star from '../../../iconHeader/icons8-звезда-50.png';
 import cart from '../../../iconHeader/icons8-корзина-64.png';
 import search from '../../../iconHeader/icon-input.png';
 import bird from '../../../iconHeader/icons8-next.png';
+import { useNavigate } from "react-router-dom";
 
 const UnderHeader: FC = () => {
+  const navigate = useNavigate();
+  
+  const handleOnClick = () => {
+    navigate('/')
+  };
+
   return (
     <div className="page-UnderHeader">
       <div className="wrapper">
-        <img className="logo" src={logo} alt="logo" />
+        <img onClick={handleOnClick} className="logo" src={logo} alt="logo" />
         <div className="form-input">
           <input type="text" placeholder="Поиск в Каталоге. Например, 'холодильник атлант' " />
           <img className="search" src={search} alt="foto" />

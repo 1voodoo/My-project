@@ -14,9 +14,7 @@ const Header: FC = () => {
   const navigate = useNavigate();
   const [weather, setWeather] = useState<IWeather | null>(null);
   const [byn, setByn] = useState<IBYN | null>(null);
-  
-  console.log(byn?.USDBYN.high);
-  
+  const [popUp, setPopUp] = useState(false);
   const getApiWeather = async() => {
     const respons = await ApiWeather();
     setWeather(respons);
@@ -26,6 +24,12 @@ const Header: FC = () => {
     const respons = await ApiBYN();
     setByn(respons);
   };
+  const handleOnFocus = () => {
+    setPopUp(true)
+  }
+  const handleOnLive = () => {
+    setPopUp(false)
+  }
 
   const handleOnClick = () => {
     if (window.location.href !== 'http://localhost:3000/catalog') {
@@ -41,7 +45,7 @@ const Header: FC = () => {
   return (
     <div className="page">
       <div className="wrapper">
-        <ul>
+        <ul className="News">
           <div className="container-yellow">
             <li onClick={handleOnClick} className="li-foto good-price">
               <img src={fire} alt="icon" />
@@ -50,8 +54,24 @@ const Header: FC = () => {
                 <p>Все суперцены</p>
               </div>
             </li>
-            <li className="li-foto-little">
+            <li onMouseLeave={handleOnLive} onMouseMove={handleOnFocus} className="li-foto-little ">
               Новости
+              {popUp && 
+                  <div className="popUP-news">
+                    <div>
+                      <li>Кошелек</li>
+                    </div>
+                    <div>
+                      <li>Авто</li>
+                    </div>
+                    <div>
+                      <li>Технологии</li>
+                    </div>
+                    <div>
+                      <li>Недвижимость</li>
+                    </div>
+                  </div>
+                }
               <img src={bird} alt="icon" />
             </li>
             <li className="li-foto-little">
@@ -77,7 +97,6 @@ const Header: FC = () => {
             Onliner Клевер</li>
           <li className="currency">$ {byn?.USDBYN.high ? byn?.USDBYN.high : <div className="spinner"></div>}</li>
           <li className="weather"><span>{weather?.description === 'Partly cloudy' ? <img className="cloudImg" src={cloud} alt="cloud" /> : ''}</span>{weather?.temperature ? weather?.temperature: <div className="spinner"></div>}</li>
-          
         </ul>
       </div>
      

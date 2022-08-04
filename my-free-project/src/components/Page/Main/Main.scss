@@ -1,0 +1,102 @@
+.page-main-wrapper {
+    max-width: 1140px;
+    margin: 0 auto;
+    background-color: #f4f4f4;
+    box-shadow: 0 1px 3px 0rgba(0,0,0,4);
+    -webkit-tap-highlight-color: rgba(0,0,0,.1);
+}
+.page-main-header {
+    overflow: hidden;
+    overflow-x: auto;
+    padding: 8px 20px;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+}
+.page-main-header-href {
+    color: #06c;
+    font-size: 13px;
+    text-decoration: none;
+    &:not(:last-child) {
+        margin-right: 20px;
+    }
+    &:hover {
+        text-decoration: underline;
+    }
+}
+.page-main-main {
+    display: flex;
+}
+.page-main-container {
+    background-image: url('../../../pageMain/лю-и-хо-я-по-магазинам-в-магазине-супермаркета-52457249.jpg');
+    background-size: cover;
+    width: 31%;
+    height: 120px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 0 0 1px #fff;
+    opacity: 0.8;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 1;
+    }
+    & .page-main-container-span {
+        background: #1a6dbb;
+        color: #fff;
+        line-height: 9px;
+        font-size: 10px;
+        padding: 4px 10px 3px;
+        width: min-content;
+    }
+    & .home-span {
+        background-color: yellow;
+        color: black;
+    }
+    & .page-main-container-tittle {
+        font-size: 17px;
+        line-height: 1;
+        color: white;
+    }
+}
+.home-back {
+    background-image: url('../../../pageMain/113_object.jpg');
+}
+.cinema-back {
+    background-image: url('../../../pageMain/Falcon-Club-Бутик-Кино-РБ.jpg');
+}
+.car-back {
+    background-image: url('../../../pageMain/auto.jpg');
+}
+.phone-back {
+    background-image: url('../../../pageMain/14-телефонов-размером-с-кредитную-карту.jpg');
+}
+.legend-back {
+    background-image: url('../../../pageMain/kto-kruche-norris-ili-van-damm_1589563668360713110.jpg');
+}
+.rest-back {
+    background-image: url('../../../pageMain/20-Sleep-at-least-six-hours.jpg');
+}
+.kettle-back {
+    background-image: url('../../../pageMain/kettle.jpg');
+}
+.washing-back {
+    background-image: url('../../../pageMain/he-washing-machine-water-usage_Thumbnail.jpg');
+}
+.fish-back {
+    background-image: url('../../../pageMain/сом.jpg');
+}
+.fashan-back {
+    background-image: url('../../../pageMain/washan.jpg');
+}
+.page-main-main-firstContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+.page-main-main-secondContainer {
+    width: 130%;
+    & .page-main-last {
+        height: 100%;
+    }
+}

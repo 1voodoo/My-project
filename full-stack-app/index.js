@@ -12,7 +12,6 @@ mongoose
   .catch((error) => console.log('DB error', error))
 
 const app = express();
-
 app.use(express.json())
 
 app.post('/auth/registration', registerValidation, async (req, res) => {

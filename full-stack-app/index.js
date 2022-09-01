@@ -6,7 +6,6 @@ import { registerValidation } from './validations/auth.js';
 import { validationResult } from 'express-validator';
 import UserModel from './models/User.js';
 
-
 mongoose
   .connect('mongodb+srv://admin:admin@cluster0.jhhgpba.mongodb.net/?retryWrites=true&w=majority')
   .then(() => console.log('DB ok'))

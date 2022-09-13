@@ -14,6 +14,7 @@ mongoose
 const app = express();
 app.use(express.json())
 
+
 app.post('/auth/registration', registerValidation, async (req, res) => {
   const errors = validationResult(req);
   if(!errors.isEmpty()) {
